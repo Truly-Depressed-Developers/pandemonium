@@ -14,7 +14,7 @@ namespace MainMenu {
         #region Callback
 
         public void Callback_NewGame() {
-            SceneManager.LoadScene(sceneBuildIndex: 2);
+            SceneManager.LoadScene(1);
         }
 
         public void Callback_Exit() {

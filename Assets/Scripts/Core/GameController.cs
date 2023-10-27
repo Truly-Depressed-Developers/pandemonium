@@ -14,6 +14,8 @@ namespace Core {
             }
             
             Debug.Log("GameStart");
+                
+            CutsceneController.I.DisplayCutscene(startCutscene);
         }
     }
 }
