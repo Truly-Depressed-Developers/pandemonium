@@ -1,24 +1,37 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player {
     public class Movement : MonoBehaviour {
-        [SerializeField] private float moveSpeed = 2;
+        [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] private float dashTime = 0.5f;
+        [SerializeField] private float dashMultiplayer = 4f;
+        
+        private Vector2 direction = new (0, 0);
+        private float lastDashTime = 0;
 
         public void Update() {
-            OnIndicateMovement();
+            MovePlayer();
+        }
+        
+        public void OnIndicateMovement(InputAction.CallbackContext ctx) {
+            direction = ctx.ReadValue<Vector2>().normalized;
         }
 
-        public void OnIndicateMovement() {
-
-            // Get the player's Transform component
+        private void MovePlayer() {
             Transform playerTransform = gameObject.transform;
 
-            // Move the player forward
-            playerTransform.Translate(Input.GetAxis("Vertical") * Vector3.up * moveSpeed * Time.deltaTime );
+            float isDashActivated = Time.time - lastDashTime < dashTime ? dashMultiplayer : 1;
+            
+            playerTransform.Translate(direction.y * moveSpeed * isDashActivated * Time.deltaTime * Vector3.up);
+            playerTransform.Translate(direction.x * moveSpeed * isDashActivated * Time.deltaTime * Vector3.right);
+        }
 
-            // Move the player left
-            playerTransform.Translate(Input.GetAxis("Horizontal") * Vector3.right * moveSpeed * Time.deltaTime);
+        public void OnIndicateDash(InputAction.CallbackContext ctx) {
+            if (ctx.canceled) return;
+
+            lastDashTime = Time.time;
         }
     }
 }
