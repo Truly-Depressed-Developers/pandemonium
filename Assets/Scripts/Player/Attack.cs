@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Camera;
 using DamageSystem;
@@ -16,16 +15,15 @@ namespace Player {
         [SerializeField] private float staminaCost;
         [SerializeField] private StaminaBar staminaBar;
 
-        private bool specialAttackActive;
+        public bool SpecialAttackActive => specialAttackCoroutine != null;
         private Coroutine specialAttackCoroutine;
 
         public void SpecialAttack(InputAction.CallbackContext ctx) {
             if (ctx.ReadValue<float>() == 0f) return;
-            if (specialAttackActive || movement.isInDashMove()) return;
+            if (SpecialAttackActive || movement.isInDashMove()) return;
             if (!staminaBar || !staminaBar.TryUse(staminaCost)) return;
-            
+
             CameraZoomIn.instance.ZoomInCamera();
-            specialAttackActive = true;
             specialAttackCoroutine = StartCoroutine(FreeTheSpirit());
         }
 
@@ -49,15 +47,15 @@ namespace Player {
             crossWeapon.gameObject.SetActive(false);
 
             CameraZoomIn.instance.ZoomOutCamera();
-            specialAttackActive = false;
+            specialAttackCoroutine = null;
         }
 
         public void CancelSpecialAttack() {
-            if (!specialAttackActive) return;
+            if (!SpecialAttackActive) return;
             
             crossWeaponFreezeInvoker.CancelFreeze();
-            FreeTheSpiritEnd();
             StopCoroutine(specialAttackCoroutine);
+            FreeTheSpiritEnd();
         }
     }
 }

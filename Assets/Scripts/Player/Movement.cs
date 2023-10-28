@@ -1,5 +1,4 @@
-﻿using System;
-using DamageSystem;
+﻿using DamageSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,17 +21,18 @@ namespace Player {
         private Vector2 dashDirection = new(0, 1);
         private float lastDashTime = float.NegativeInfinity;
 
-        private FreezeReceiver freezeReceiver = null;
-        private bool inDashMove = false;
-
-        private void Start() {
-            freezeReceiver = GetComponent<FreezeReceiver>();
-        }
+        private bool inDashMove;
+        [SerializeField] private FreezeReceiver freezeReceiver;
+        [SerializeField] private Attack playerAttack;
 
         public void Update() {
-            if(freezeReceiver && freezeReceiver.CanMove()) {
-                MovePlayer();
-            }
+            if(playerAttack.SpecialAttackActive)
+                return;
+                
+            if(!freezeReceiver || !freezeReceiver.CanMove())
+                return;
+            
+            MovePlayer();
         }
 
         public void OnIndicateMovement(InputAction.CallbackContext ctx) {

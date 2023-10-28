@@ -419,6 +419,8 @@ MonoBehaviour:
   staminaCost: 20
   staminaBar: {fileID: 5681395226298368031}
   anim: {fileID: 7536593582941651016}
+  freezeReceiver: {fileID: 3588002284269296598}
+  playerAttack: {fileID: 2584485077173172081}
 --- !u!114 &9015441129345004796
 MonoBehaviour:
   m_ObjectHideFlags: 0

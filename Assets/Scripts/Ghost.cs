@@ -36,6 +36,8 @@ public class Ghost : Enemy {
     private FreezeReceiver freezeReceiver;
     private Rigidbody2D rb;
 
+    private bool alive = true;
+    
     protected override void Start() {
         base.Start();
 
@@ -60,7 +62,12 @@ public class Ghost : Enemy {
 
     private IEnumerator Attack() {
         while (true) {
-            if (!target) break;
+            if (!alive || !target) yield break;
+
+            if (!freezeReceiver.CanMove()) {
+                yield return null;
+                continue;
+            }
             
             GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
@@ -76,6 +83,7 @@ public class Ghost : Enemy {
 
     public void OnFreezeEnd(bool finished) {
         if (!finished) return;
+        alive = false;
         
         anim.Play("Free");
     }
@@ -86,8 +94,13 @@ public class Ghost : Enemy {
 
     private IEnumerator Move() {
         while (true) {
-            if (!target) break;
+            if (!alive || !target) yield break;
 
+            if (!freezeReceiver.CanMove()) {
+                yield return null;
+                continue;
+            }
+                
             bool isTooCloseToTarget =
                 (transform.position - target.position).sqrMagnitude <= Math.Pow(distanceMargin, 2);
             

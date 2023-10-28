@@ -23,15 +23,19 @@ namespace DamageSystem {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (freezeReceivers != (freezeReceivers | 1 << other.gameObject.layer)) return;
-            other.gameObject.TryGetComponent(out FreezeReceiver freezeReceiver);
-            if (freezeReceiver == null) return;
+            if (freezeReceivers != (freezeReceivers | 1 << other.gameObject.layer)) 
+                return;
+            
+            if (!other.gameObject.TryGetComponent(out FreezeReceiver freezeReceiver)) 
+                return;
+            
             lastFreezeReceiver = freezeReceiver;
             Action<bool> tempUnFreezeOther = freezeReceiver.Freeze();
-            if (tempUnFreezeOther == null) return;
+            if (tempUnFreezeOther == null)
+                return;
+            
             unFreezeOther = tempUnFreezeOther;
-
-
+            
 
             Action<bool> tempUnFreezeSelf = GetComponentInParent<FreezeReceiver>().Freeze();
             Debug.Log(tempUnFreezeSelf);
