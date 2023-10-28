@@ -14,10 +14,12 @@ namespace DamageSystem {
         [SerializeField] private DamageReceiver damageReceiver;
 
         public Action<bool> Freeze() {
-            if (!CanBeFreezed() || anyoneFreezed) return null;
+            if (!CanBeFreezed() || (freezeOnlyUnderTreshold && anyoneFreezed)) return null;
             onFreeze.Invoke();
             freezed = true;
-            anyoneFreezed = true;
+            if (freezeOnlyUnderTreshold) {
+                anyoneFreezed = true;
+            }
             Debug.Log("Freezed " + gameObject.name);
             return Unfreeze;
         }
@@ -25,7 +27,9 @@ namespace DamageSystem {
         public void Unfreeze(bool finished) {
             Debug.Log("Funreezed " + gameObject.name);
             freezed = false;
-            anyoneFreezed = false;
+            if (freezeOnlyUnderTreshold) {
+                anyoneFreezed = false;
+            }
             onFreezeEnd.Invoke(finished);
         }
 
