@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -6,59 +7,72 @@ using UnityEngine.UI;
 
 namespace Cutscenes {
     public class CutsceneController : MonoSingleton<CutsceneController> {
-
+        
+        [SerializeField] private RectTransform cutsceneTextbox;
+        
         [SerializeField] private Image cutsceneImage;
-        [SerializeField] private TextMeshProUGUI cutsceneText;
 
-        private Coroutine currentCutsceneCoroutine;
+        private Cutscene currentCutscene;
+        private List<GameObject> textboxes = new();
         
         public void DisplayCutscene(Cutscene cutscene) {
             Assert.IsNotNull(cutscene);
-            
-            if (currentCutsceneCoroutine != null) {
-                Debug.LogWarning($"Cutscene stopped by cutscene {cutscene.name}");
-                StopCoroutine(currentCutsceneCoroutine);
+
+            if (currentCutscene != null) {
+                Debug.LogWarning($"Cutscene ({currentCutscene.name}) stopped by cutscene {cutscene.name}");
+                StopCutscene();
             }
             
-            currentCutsceneCoroutine = StartCoroutine(PlayCutscene(cutscene));
-        }
+            currentCutscene = cutscene;
 
-        public void StopCutscene() {
-            if (currentCutsceneCoroutine != null) {
-                StopCoroutine(currentCutsceneCoroutine);
-                currentCutsceneCoroutine = null;
-            }
-        }
-
-        private IEnumerator PlayCutscene(Cutscene cutscene) {
+            foreach (Cutscene.CutsceneText text in cutscene.Texts)
+                StartCoroutine(ShowText(text));
+            
             if (cutscene.CutsceneImg) {
                 cutsceneImage.gameObject.SetActive(true);
                 cutsceneImage.sprite = cutscene.CutsceneImg;
+                StartCoroutine(ShowCutsceneImage(cutscene));
             }
+        }
 
-            foreach (Cutscene.CutsceneText text in cutscene.Texts) {
-                yield return new WaitForSeconds(text.Delay);
- 
-                RectTransform parent = (RectTransform)cutsceneText.rectTransform.parent;
-                if (string.IsNullOrEmpty(text.Text)) {
-                    parent.gameObject.SetActive(false);    
-                } else {
-                    cutsceneText.text = text.Text;
-                    
-                    parent.anchoredPosition = text.Position;
-                    parent.sizeDelta = text.Size;
-                    parent.gameObject.SetActive(true);
-                }
-                
-                yield return new WaitForSeconds(text.Duration);
-                parent.gameObject.SetActive(false);
-            }
+        public void StopCutscene() {
+            StopAllCoroutines();
+            currentCutscene = null;
+
+            foreach (GameObject textbox in textboxes)
+                if (textbox)
+                    Destroy(textbox);
+            textboxes.Clear();
+        }
+
+        private IEnumerator ShowCutsceneImage(Cutscene cutscene) {
+            yield return new WaitForSeconds(cutscene.Duration);
             
-            currentCutsceneCoroutine = null;
+            StopCutscene();
+            
             if (cutscene.Next != null)
                 DisplayCutscene(cutscene.Next);
             else
                 cutsceneImage.gameObject.SetActive(false);
+        }
+        
+        private IEnumerator ShowText(Cutscene.CutsceneText text) {
+            yield return new WaitForSeconds(text.Delay);
+ 
+            RectTransform textbox = Instantiate(cutsceneTextbox, transform);
+            TextMeshProUGUI cutsceneText = textbox.GetComponentInChildren<TextMeshProUGUI>();
+                
+            cutsceneText.text = text.Text;
+            cutsceneText.fontSize = text.FontSize;    
+            
+            textbox.anchoredPosition = text.Position;
+            textbox.sizeDelta = text.Size;
+            textboxes.Add(textbox.gameObject);
+            
+            yield return new WaitForSeconds(text.Duration);
+            
+            Destroy(textbox.gameObject);
+            textboxes.Remove(textbox.gameObject);
         }
     }
 }
