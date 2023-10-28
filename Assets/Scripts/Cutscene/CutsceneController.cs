@@ -59,7 +59,7 @@ namespace Cutscenes {
         private IEnumerator ShowText(Cutscene.CutsceneText text) {
             yield return new WaitForSeconds(text.Delay);
  
-            RectTransform textbox = Instantiate(cutsceneTextbox);
+            RectTransform textbox = Instantiate(cutsceneTextbox, transform);
             TextMeshProUGUI cutsceneText = textbox.GetComponentInChildren<TextMeshProUGUI>();
                 
             cutsceneText.text = text.Text;
