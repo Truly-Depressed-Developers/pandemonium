@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1788795735}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 8.25
+    OrthographicSize: 6.25
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -292,21 +292,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7741117930608105979, guid: 909631101beea024eb3d06e904187a3a, type: 3}
-      propertyPath: deathAction
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7741117930608105979, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: OnDamageReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 155111681}
-    - target: {fileID: 9015441129345004796, guid: 909631101beea024eb3d06e904187a3a, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9015441129345004796, guid: 909631101beea024eb3d06e904187a3a, type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9137890349518843395, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -378,7 +366,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.25
+  orthographic size: 6.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
