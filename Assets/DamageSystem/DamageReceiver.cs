@@ -44,8 +44,13 @@ namespace DamageSystem {
         private void OnTriggerEnter2D(Collider2D other) {
             if (damageSources != (damageSources | 1 << other.gameObject.layer)) return;
             Weapon weapon = other.gameObject.GetComponentInParent<Weapon>();
-            if (weapon == null) return;
-            TakeDamage(weapon.GetDamage());
+            if (weapon != null) {
+                TakeDamage(weapon.GetDamage());
+            }
+            CollisionDamageDealer collisionDamageDealer = other.gameObject.GetComponent<CollisionDamageDealer>();
+            if (collisionDamageDealer != null) {
+                TakeDamage(collisionDamageDealer.GetDamage());
+            }
         }
 
         public void TakeDamage(float amount) {
