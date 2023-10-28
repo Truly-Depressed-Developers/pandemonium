@@ -13,6 +13,8 @@ namespace Player {
         [SerializeField] private float staminaCost;
         [SerializeField] private StaminaBar staminaBar;
 
+        [SerializeField] private Animator anim;
+
         private readonly float dashStartTime = 0.5f;
 
         private Vector2 direction = new(0, 0);
@@ -35,8 +37,15 @@ namespace Player {
 
         public void OnIndicateMovement(InputAction.CallbackContext ctx) {
             direction = ctx.ReadValue<Vector2>().normalized;
+
             if (direction.y != 0 || direction.x != 0) {
+                anim.SetFloat("X", direction.x);
+                anim.SetFloat("Y", direction.y);
+                anim.SetFloat("SPEED", 1f);
+
                 lastDashDirection = direction;
+            } else {
+                anim.SetFloat("SPEED", 0f);
             }
         }
 

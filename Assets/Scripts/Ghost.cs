@@ -53,7 +53,7 @@ public class Ghost : Enemy {
         if (t) {
             target = t.transform;
         }
-        
+
         StartCoroutine(Attack());
         StartCoroutine(Move());
     }
