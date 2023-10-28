@@ -48,12 +48,12 @@ namespace Cutscenes {
         private IEnumerator ShowCutsceneImage(Cutscene cutscene) {
             yield return new WaitForSeconds(cutscene.Duration);
             
+            StopCutscene();
+            
             if (cutscene.Next != null)
                 DisplayCutscene(cutscene.Next);
             else
                 cutsceneImage.gameObject.SetActive(false);
-            
-            StopCutscene();
         }
         
         private IEnumerator ShowText(Cutscene.CutsceneText text) {
