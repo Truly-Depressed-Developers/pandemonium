@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DamageSystem;
 using DamageSystem.Health;
 
 public class Ghost : Enemy {
@@ -19,7 +20,7 @@ public class Ghost : Enemy {
     protected override void Start() {
         base.Start();
 
-        InitHp(100f);
+        // InitHp(100f);
 
         moveSpeed = Random.Range(0.9f * moveSpeedBase, 1.1f * moveSpeedBase);
         distanceMargin = Random.Range(0.9f * distanceMarginBase, 1.1f * distanceMarginBase);
@@ -34,10 +35,6 @@ public class Ghost : Enemy {
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Q)) {
-            Hit(5f);
-        }
-
         target = player.transform.position;
         MoveTo(target);
     }
