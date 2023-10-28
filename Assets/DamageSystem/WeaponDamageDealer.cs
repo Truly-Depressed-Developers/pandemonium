@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace DamageSystem {
     public class WeaponDamageDealer : MonoBehaviour, IActiveDamageDealer {
@@ -10,7 +11,8 @@ namespace DamageSystem {
             return weapon.GetDamage();
         }
 
-        public void OnAttack() {
+        public void OnAttack(InputAction.CallbackContext ctx) {
+            if(ctx.ReadValue<float>() == 0f) return;
             if (!weapon || movement.isInDashMove()) return;
             weapon.Attack();
         }
