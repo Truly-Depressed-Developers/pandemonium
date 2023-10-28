@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
-  m_Name: StartCutscene
+  m_Name: 1.1
   m_EditorClassIdentifier: 
   <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 7f29ea85ae23ee24594450dd2a9f15be, type: 3}
   <Texts>k__BackingField:
@@ -34,9 +34,4 @@ MonoBehaviour:
     <Duration>k__BackingField: 3
     <Position>k__BackingField: {x: 585, y: 20}
     <Size>k__BackingField: {x: 350, y: 60}
-  - <Text>k__BackingField: 
-    <Delay>k__BackingField: 0
-    <Duration>k__BackingField: 1
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Size>k__BackingField: {x: 0, y: 0}
-  <Next>k__BackingField: {fileID: 0}
+  <Next>k__BackingField: {fileID: 11400000, guid: 6c1297a7ed525a242940c3fc4f46fa6c, type: 2}
