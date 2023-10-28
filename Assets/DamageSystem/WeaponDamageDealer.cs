@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using UnityEngine;
 
 namespace DamageSystem {
@@ -11,7 +9,6 @@ namespace DamageSystem {
 
         public void OnAttack() {
             if (!weapon) return;
-
             weapon.Attack();
         }
     }

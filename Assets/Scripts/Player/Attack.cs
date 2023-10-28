@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using DamageSystem;
+﻿using System.Collections;
 using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 
@@ -13,11 +11,19 @@ namespace Player {
         private Collider2D specialWeaponCollider;
         [SerializeField]
         private GameObject crossWeapon;
+        [SerializeField] private float staminaCost;
+        [SerializeField] private StaminaBar staminaBar;
 
         bool specialAttackActive = false;
 
         public void SpecialAttack() {
-            if(!specialAttackActive) { 
+            if (specialAttackActive) return;
+            if (staminaBar) {
+                if (staminaBar.TryUse(staminaCost)) {
+                    specialAttackActive = true;
+                    StartCoroutine(freeTheSpirit());
+                }
+            } else {
                 specialAttackActive = true;
                 StartCoroutine(freeTheSpirit());
             }
