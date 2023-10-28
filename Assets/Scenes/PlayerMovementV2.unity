@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1788795735}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 8.253591
+    OrthographicSize: 8.25
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -209,6 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eefff6285d12499902406d3b4ac33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeIntensity: 8
+  shakeTime: 0.16
+  shakeFrequency: 1
 --- !u!114 &155111682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d6bade5f1b96f4da77c4b77370810c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultScope: 6.5
+  zoomInScope: 4
+  zoomSpeed: 13
 --- !u!1001 &370779106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,7 +366,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.253591
+  orthographic size: 8.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -550,9 +556,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 970.442, y: -48.882812, z: 242.51639}
 --- !u!114 &1482857862
 MonoBehaviour:
   m_ObjectHideFlags: 3

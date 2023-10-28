@@ -22,16 +22,18 @@ public class Ghost : Enemy {
     [SerializeField] private float attackIntervalRandomness = 0.3f;
     [SerializeField] private float attackDamageBase = 10f;
     [SerializeField] private float attackDamageRandomness = 0.3f;
+    [SerializeField] private float projectileSpeedBase = 6f;
+    [SerializeField] private float projectileSpeedRandomness = 0.2f;
     
     private float MovementVelocity { get { return Utils.RandomizeValue(moveVelocityBase, moveVelocityRandomness); } }
     private float AttackInterval { get { return Utils.RandomizeValue(attackIntervalBase, attackIntervalRandomness); } }
     private float AttackDamage { get { return Utils.RandomizeValue(attackDamageBase, attackDamageRandomness); } }
     private float MoveInterval { get { return Utils.RandomizeValue(moveIntervalBase, moveIntervalRandomness); } }
+    private float ProjectileSpeed { get { return Utils.RandomizeValue(projectileSpeedBase, projectileSpeedRandomness); } }
     
     private Transform target;
     private Animator anim;
     private FreezeReceiver freezeReceiver;
-    private bool dying = false;
     private Rigidbody2D rb;
 
     protected override void Start() {
@@ -51,9 +53,7 @@ public class Ghost : Enemy {
         if (t) {
             target = t.transform;
         }
-    }
-    private void MoveTo(Vector3 moveTarget) {
-        if (dying) return;
+        
         StartCoroutine(Attack());
         StartCoroutine(Move());
     }
@@ -62,12 +62,12 @@ public class Ghost : Enemy {
         while (true) {
             if (!target) break;
             
-            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity, transform);
+            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
             Vector3 direction = (target.position - transform.position).normalized;
 
             Bullet bulletScript = projectile.GetComponent<Bullet>();
-            bulletScript.SetSpeed(10);
+            bulletScript.SetSpeed(ProjectileSpeed);
             bulletScript.SetDirection(direction);
 
             yield return new WaitForSeconds(AttackInterval);
@@ -75,12 +75,9 @@ public class Ghost : Enemy {
     }
 
     public void OnFreezeEnd(bool finished) {
-        if (finished) {
-            dying = true;
-            anim.Play("Free");
-        } else {
-
-        }
+        if (!finished) return;
+        
+        anim.Play("Free");
     }
 
     public void Destroy() {
