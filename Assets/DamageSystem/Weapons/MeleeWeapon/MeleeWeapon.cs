@@ -23,6 +23,7 @@ namespace DamageSystem.Weapons.MeleeWeapon {
         public override void Attack() {
             collider.enabled = true;
             //Debug.Log("atck");
+            if (!isActiveAndEnabled) return;
             animator.Play("Attack");
         }
 

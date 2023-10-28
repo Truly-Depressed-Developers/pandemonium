@@ -19,6 +19,7 @@ public class Ghost : Enemy {
     private GameObject player;
 
     private FreezeReceiver freezeReceiver;
+    private bool dying = false;
 
     protected override void Start() {
         base.Start();
@@ -49,6 +50,7 @@ public class Ghost : Enemy {
     }
 
     private void MoveTo(Vector3 moveTarget) {
+        if (dying) return;
         if(Vector3.Distance(transform.position, player.transform.position) > distanceMargin) {
             Vector3 dir = moveTarget - transform.position;
             anim.SetFloat("X", dir.x);
@@ -76,9 +78,10 @@ public class Ghost : Enemy {
 
     public void OnFreezeEnd(bool finished) {
         if (finished) {
+            dying = true;
             anim.Play("Free");
         } else {
-            
+
         }
     }
 
