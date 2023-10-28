@@ -8,24 +8,29 @@ namespace DamageSystem {
         public UnityEvent<bool> onFreezeEnd;
         public UnityEvent onFreeze;
         private bool freezed = false;
+        [SerializeField] private bool freezeOnlyUnderTreshold = true;
         [SerializeField] private DamageReceiver damageReceiver;
 
         public Action<bool> Freeze() {
             if (!CanBeFreezed()) return null;
             onFreeze.Invoke();
             freezed = true;
-            Debug.Log("Freezed");
+            Debug.Log("Freezed " + gameObject.name);
             return Unfreeze;
         }
 
         public void Unfreeze(bool finished) {
-            Debug.Log("Funreezed");
+            Debug.Log("Funreezed " + gameObject.name);
             freezed = false;
             onFreezeEnd.Invoke(finished);
         }
 
         private bool CanBeFreezed() {
-            return !freezed && damageReceiver.IsUnderTreshold();
+            if (freezeOnlyUnderTreshold) {
+                return !freezed && damageReceiver.IsUnderTreshold();
+            } else {
+                return !freezed;
+            }
         }
     }
 }
