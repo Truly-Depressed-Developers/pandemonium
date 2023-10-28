@@ -5,37 +5,39 @@ using UnityEngine;
 namespace Camera {
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     public class CameraShake : MonoBehaviour {
-        private CinemachineVirtualCamera cinemachineVirtualCamera;
-        [SerializeField] private float shakeIntensity = 20f;
+        [SerializeField] private float shakeIntensity = 10f;
         [SerializeField] private float shakeTime = 0.2f;
+        [SerializeField] private float shakeFrequency = 1f;
 
         private float timer;
 
+        private CinemachineVirtualCamera cinemachineVirtualCamera;
+        private CinemachineBasicMultiChannelPerlin cbmcp;
+        
         private void Awake() {
             cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+            cbmcp = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+            cbmcp.m_FrequencyGain = shakeFrequency;
         }
 
         public void ShakeCamera() {
-            CinemachineBasicMultiChannelPerlin cbmcp =
-                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             cbmcp.m_AmplitudeGain = shakeIntensity;
             timer = shakeTime;
         }
 
-        void StopShake() {
-            CinemachineBasicMultiChannelPerlin cbmcp =
-                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        public void StopShake() {
             cbmcp.m_AmplitudeGain = 0f;
             timer = 0;
         }
 
         private void Update() {
-            if (timer > 0) {
-                timer -= Time.deltaTime;
+            if (!(timer > 0)) return;
+            
+            timer -= Time.deltaTime;
 
-                if (timer <= 0) {
-                    StopShake();
-                }
+            if (timer <= 0) {
+                StopShake();
             }
         }
     }

@@ -53,5 +53,10 @@ namespace Camera {
                 cameraZoomStatus = CameraZoomStatus.Static;
             }
         }
+
+        
+        private void Editor_FixCameraSizeToDefault() {
+            
+        }
     }
 }
