@@ -642,7 +642,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3a153f4c-f1a1-43a1-a1fd-2a7b9689cc3d
     m_ActionName: Player/SpecialAttack[/Keyboard/v]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

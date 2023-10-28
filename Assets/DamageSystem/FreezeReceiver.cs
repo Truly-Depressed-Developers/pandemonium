@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DamageSystem {
     public class FreezeReceiver : MonoBehaviour {
+
+        private static bool anyoneFreezed = false;
 
         public UnityEvent<bool> onFreezeEnd;
         public UnityEvent onFreeze;
@@ -12,9 +14,10 @@ namespace DamageSystem {
         [SerializeField] private DamageReceiver damageReceiver;
 
         public Action<bool> Freeze() {
-            if (!CanBeFreezed()) return null;
+            if (!CanBeFreezed() || anyoneFreezed) return null;
             onFreeze.Invoke();
             freezed = true;
+            anyoneFreezed = true;
             Debug.Log("Freezed " + gameObject.name);
             return Unfreeze;
         }
@@ -22,6 +25,7 @@ namespace DamageSystem {
         public void Unfreeze(bool finished) {
             Debug.Log("Funreezed " + gameObject.name);
             freezed = false;
+            anyoneFreezed = false;
             onFreezeEnd.Invoke(finished);
         }
 
@@ -31,6 +35,10 @@ namespace DamageSystem {
             } else {
                 return !freezed;
             }
+        }
+
+        public bool CanMove() {
+            return !freezed;
         }
     }
 }
