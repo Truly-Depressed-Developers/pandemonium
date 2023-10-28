@@ -88,6 +88,11 @@ public class Ghost : Enemy {
         while (true) {
             if (!target) break;
 
+            if (!freezeReceiver.CanMove()) {
+                yield return null;
+                continue;
+            }
+                
             bool isTooCloseToTarget =
                 (transform.position - target.position).sqrMagnitude <= Math.Pow(distanceMargin, 2);
             
