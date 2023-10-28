@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : BulletBase {
 
     private float speed = 1.0f;
     private Vector3 direction = new Vector3(1,0,0);

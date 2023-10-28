@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 
 namespace Morok.Bullet {
-    public class Movement : MonoBehaviour {
+    public class Movement : BulletBase {
         [SerializeField] private float speed = 5f;
         [SerializeField] private float lifeTime = 3f;
         
