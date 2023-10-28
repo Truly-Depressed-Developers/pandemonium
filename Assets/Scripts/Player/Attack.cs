@@ -1,6 +1,5 @@
-﻿using System;
 using System.Collections;
-using DamageSystem;
+using Camera;
 using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 
@@ -13,11 +12,22 @@ namespace Player {
         private Collider2D specialWeaponCollider;
         [SerializeField]
         private GameObject crossWeapon;
+        [SerializeField] 
+        private Movement movement;
+        [SerializeField] private float staminaCost;
+        [SerializeField] private StaminaBar staminaBar;
 
         bool specialAttackActive = false;
 
         public void SpecialAttack() {
-            if(!specialAttackActive) { 
+            if(specialAttackActive || movement.isInDashMove()) return; 
+            CameraZoomIn.instance.ZoomInCamera();
+            if (staminaBar) {
+                if (staminaBar.TryUse(staminaCost)) {
+                    specialAttackActive = true;
+                    StartCoroutine(freeTheSpirit());
+                }
+            } else {
                 specialAttackActive = true;
                 StartCoroutine(freeTheSpirit());
             }
@@ -34,6 +44,7 @@ namespace Player {
             specialWeaponCollider.enabled = false;
             crossWeapon.gameObject.SetActive(false);
 
+            CameraZoomIn.instance.ZoomOutCamera();
             specialAttackActive=false;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Cam = UnityEngine.Camera;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : BulletBase {
 
     private float speed = 1.0f;
     private Vector3 direction = new Vector3(1,0,0);
@@ -21,7 +22,7 @@ public class Bullet : MonoBehaviour {
     }
 
     private void DestroyWhenOutOfScreen() {
-        Vector3 screenPos = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 screenPos = Cam.main.WorldToViewportPoint(transform.position);
         if(!(screenPos.x >= 0 && screenPos.x <= 1 && screenPos.y >= 0 && screenPos.y <= 1)) {
             Destroy(gameObject);
         }

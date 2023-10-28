@@ -2,8 +2,6 @@
 using UnityEngine;
 using System.Collections;
 using DamageSystem;
-using DamageSystem.Health;
-using Unity.VisualScripting;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -31,6 +29,7 @@ public class Ghost : Enemy {
     private float MoveInterval { get { return Utils.RandomizeValue(moveIntervalBase, moveIntervalRandomness); } }
     
     private Transform target;
+    private Animator anim;
     private FreezeReceiver freezeReceiver;
     private Rigidbody2D rb;
 
@@ -39,8 +38,9 @@ public class Ghost : Enemy {
 
         freezeReceiver = GetComponent<FreezeReceiver>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
-        if (!freezeReceiver || !rb) {
+        if (!freezeReceiver || !rb || !anim) {
             throw new Exception("Required component is missing");
         }
 
@@ -87,6 +87,9 @@ public class Ghost : Enemy {
             if (isTooCloseToTarget) {
                 movementDirection *= -1;
             }
+            
+            anim.SetFloat("X", movementDirection.x);
+            anim.SetFloat("Y", movementDirection.y);
 
             rb.AddForce(movementDirection * MovementVelocity);
 

@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 
 namespace Morok.Bullet {
-    public class Movement : MonoBehaviour {
+    public class Movement : BulletBase {
         [SerializeField] private float speed = 5f;
         [SerializeField] private float lifeTime = 3f;
         
@@ -18,8 +17,6 @@ namespace Morok.Bullet {
         }
 
         private void Update() {
-            Debug.Log(movementPlayer);
-            
             transform.Translate( speed * Time.deltaTime * direction);
 
             if (Time.time - lastTime > lifeTime) {
