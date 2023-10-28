@@ -9,6 +9,10 @@ namespace Player {
         [SerializeField] private float dashCooldown = 0.5f;
         [SerializeField] private float dashTime = 1.15f;
         [SerializeField] private float dashMultiplayer = 4f;
+
+        [SerializeField] private float staminaCost;
+        [SerializeField] private StaminaBar staminaBar;
+
         private readonly float dashStartTime = 0.5f;
 
         private Vector2 direction = new(0, 0);
@@ -55,7 +59,7 @@ namespace Player {
 
         public void OnIndicateDash(InputAction.CallbackContext ctx) {
             if (ctx.canceled || Time.time - lastDashTime < dashCooldown + dashTime) return;
-
+            if (!staminaBar.TryUse(staminaCost)) return;
             // if (direction.y != 0 || direction.x != 0) {
             dashDirection = lastDashDirection;
             inDashMove = true;

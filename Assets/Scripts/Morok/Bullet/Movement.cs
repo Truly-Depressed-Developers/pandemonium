@@ -18,8 +18,6 @@ namespace Morok.Bullet {
         }
 
         private void Update() {
-            Debug.Log(movementPlayer);
-            
             transform.Translate( speed * Time.deltaTime * direction);
 
             if (Time.time - lastTime > lifeTime) {

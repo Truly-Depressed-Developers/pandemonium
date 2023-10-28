@@ -1,5 +1,3 @@
-﻿using System;
-using System.Linq;
 using Player;
 using UnityEngine;
 
@@ -14,7 +12,6 @@ namespace DamageSystem {
 
         public void OnAttack() {
             if (!weapon || movement.isInDashMove()) return;
-
             weapon.Attack();
         }
     }

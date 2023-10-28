@@ -411,6 +411,8 @@ MonoBehaviour:
   dashCooldown: 2
   dashTime: 0.15
   dashMultiplayer: 10
+  staminaCost: 20
+  staminaBar: {fileID: 5681395226298368031}
 --- !u!114 &9015441129345004796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +696,8 @@ MonoBehaviour:
   meleeWeapon: {fileID: 5406549444335325534}
   specialWeaponCollider: {fileID: 1597546606608603881}
   crossWeapon: {fileID: 1205114636788787554}
-  movement: {fileID: 5824065628245633129}
+  staminaCost: 40
+  staminaBar: {fileID: 5681395226298368031}
 --- !u!1001 &86593620242713735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -795,18 +798,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 1225171928006964955, guid: 23b67a46812c6fe46a588dcb9f3cdd41, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5331199753326704199, guid: 23b67a46812c6fe46a588dcb9f3cdd41, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5331199753326704199, guid: 23b67a46812c6fe46a588dcb9f3cdd41, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -836,21 +827,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6815553925068911078}
     m_Modifications:
-    - target: {fileID: 4667928071047258087, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Name
       value: MeleeWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4667928071294327197, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
-      propertyPath: damage
-      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,3 +1002,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1225171928006964954, guid: 8362d7cab93ff6744ac731eeaa810824, type: 3}
   m_PrefabInstance: {fileID: 2095846026741544461}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5681395226298368031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6038673990460552722, guid: 8362d7cab93ff6744ac731eeaa810824, type: 3}
+  m_PrefabInstance: {fileID: 2095846026741544461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b087649b406f9f14496e567fe496bc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
