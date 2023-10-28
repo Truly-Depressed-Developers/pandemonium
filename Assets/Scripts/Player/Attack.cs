@@ -54,8 +54,8 @@ namespace Player {
             if (!SpecialAttackActive) return;
             
             crossWeaponFreezeInvoker.CancelFreeze();
-            FreeTheSpiritEnd();
             StopCoroutine(specialAttackCoroutine);
+            FreeTheSpiritEnd();
         }
     }
 }

@@ -25,7 +25,9 @@ namespace DamageSystem {
         }
 
         public void Unfreeze(bool finished) {
-            Debug.Log("Funreezed " + gameObject.name);
+            if (gameObject)
+                Debug.Log("Unfreezed " + gameObject.name);
+            
             freezed = false;
             if (freezeOnlyUnderTreshold) {
                 anyoneFreezed = false;
