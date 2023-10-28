@@ -55,6 +55,9 @@ namespace DamageSystem {
             CollisionDamageDealer collisionDamageDealer = other.gameObject.GetComponent<CollisionDamageDealer>();
             if (collisionDamageDealer != null) {
                 TakeDamage(collisionDamageDealer.GetDamage());
+                if (!movement.isInDashMove() && collisionDamageDealer.gameObject.GetComponent<BulletBase>()) {
+                    Destroy(collisionDamageDealer.gameObject);
+                }
             }
         }
 
