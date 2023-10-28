@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0393690c87f4559469a5d67a2bae9a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneTextbox: {fileID: 3750154865657053138, guid: 38ddab51977f44c47b198ff913f46248, type: 3}
   cutsceneImage: {fileID: 1162636406621458759}
   cutsceneText: {fileID: 3859504279807210598}
 --- !u!1001 &7446386657733134246
