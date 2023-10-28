@@ -6,21 +6,49 @@ public class Ghost : Enemy {
 
     [SerializeField]
     private GameObject bulletPrefab;
+    private float moveSpeedBase = 4f;
+    private float distanceMarginBase = 3f;
 
-    private Vector3 target;
+    private float moveSpeed = 4f;
+    private float distanceMargin = 3f;
+
+    private Vector3 target = new Vector3(0,0,0);
     public float shootInterval = 2.0f;
+    private GameObject player;
+
     protected override void Start() {
         base.Start();
 
         InitHp(100f);
 
-        target = new Vector3(0, 0, 0);
+        moveSpeed = Random.Range(0.9f * moveSpeedBase, 1.1f * moveSpeedBase);
+        distanceMargin = Random.Range(0.9f * distanceMarginBase, 1.1f * distanceMarginBase);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player) player = GameObject.Find("Player");
+        if (player != null) {
+            target = player.transform.position;
+        }
+
         StartCoroutine(Shoot());
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.A)) {
+        if(Input.GetKeyDown(KeyCode.Q)) {
             Hit(5f);
+        }
+
+        target = player.transform.position;
+        MoveTo(target);
+    }
+
+    private void MoveTo(Vector3 moveTarget) {
+        
+        if(Vector3.Distance(transform.position, player.transform.position) > distanceMargin) {
+            Vector3 dir = moveTarget - transform.position;
+            dir.Normalize();
+
+            transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
         }
     }
 
