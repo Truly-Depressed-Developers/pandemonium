@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +22,7 @@ namespace DamageSystem.Weapons.MeleeWeapon {
 
         public override void Attack() {
             collider.enabled = true;
+            //Debug.Log("atck");
             animator.Play("Attack");
         }
 
