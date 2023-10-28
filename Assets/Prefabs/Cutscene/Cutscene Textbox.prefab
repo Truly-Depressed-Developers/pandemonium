@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3750154865657053138}
   - component: {fileID: 6188050186968334513}
   - component: {fileID: 8995254578218907294}
+  - component: {fileID: 6740125952111170429}
   m_Layer: 5
   m_Name: Cutscene Textbox
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6740125952111170429
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286390616787799616}
+  m_Enabled: 1
+  m_Alpha: 0.06
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9134711844579706815
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +163,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
