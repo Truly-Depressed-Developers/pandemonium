@@ -481,7 +481,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3563053971198710546}
         m_TargetAssemblyTypeName: DamageSystem.WeaponDamageDealer, Assembly-CSharp
         m_MethodName: OnAttack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -537,7 +537,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2584485077173172081}
         m_TargetAssemblyTypeName: Player.Attack, Assembly-CSharp
         m_MethodName: SpecialAttack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 1167288895050840659}
-  deathAction: 1
+  deathAction: 2
   damageSources:
     serializedVersion: 2
     m_Bits: 768
@@ -594,6 +594,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Camera.CameraShake, Assembly-CSharp
         m_MethodName: ShakeCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2584485077173172081}
+        m_TargetAssemblyTypeName: Player.Attack, Assembly-CSharp
+        m_MethodName: CancelSpecialAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -714,6 +726,7 @@ MonoBehaviour:
   meleeWeapon: {fileID: 5406549444335325534}
   specialWeaponCollider: {fileID: 1597546606608603881}
   crossWeapon: {fileID: 1205114636788787554}
+  crossWeaponFreezeInvoker: {fileID: 3611057363375793546}
   movement: {fileID: 5824065628245633129}
   staminaCost: 40
   staminaBar: {fileID: 5681395226298368031}
