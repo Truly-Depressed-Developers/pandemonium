@@ -51,6 +51,7 @@ public class Ghost : Enemy {
         if (t) {
             target = t.transform;
         }
+    }
 
     private void MoveTo(Vector3 moveTarget) {
         if (dying) return;
