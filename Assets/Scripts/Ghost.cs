@@ -1,76 +1,101 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using DamageSystem;
 using DamageSystem.Health;
+using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Ghost : Enemy {
-
-    [SerializeField]
-    private GameObject bulletPrefab;
-    private float moveSpeedBase = 4f;
-    private float distanceMarginBase = 3f;
-
-    private float moveSpeed = 4f;
-    private float distanceMargin = 3f;
-
-    private Vector3 target = new Vector3(0,0,0);
-    public float shootInterval = 2.0f;
-    private GameObject player;
-
+    [Header("Movement")]
+    [SerializeField] private float moveVelocityBase = 4f;
+    [SerializeField] private float moveVelocityRandomness = 0.1f;
+    [SerializeField] private float moveIntervalBase = 2f;
+    [SerializeField] private float moveIntervalRandomness = 0.4f;
+    [SerializeField] private float moveIntervalModifierTooClose = 1.4f;
+    [SerializeField] private float distanceMargin = 3f;
+    [SerializeField] private float movementDirectionOuterAngle = 30f;
+    [SerializeField] private float movementDirectionInnerAngle = 30f;
+    
+    [Header("Attack")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float attackIntervalBase = 2f;
+    [SerializeField] private float attackIntervalRandomness = 0.3f;
+    [SerializeField] private float attackDamageBase = 10f;
+    [SerializeField] private float attackDamageRandomness = 0.3f;
+    
+    private float MovementVelocity { get { return Utils.RandomizeValue(moveVelocityBase, moveVelocityRandomness); } }
+    private float AttackInterval { get { return Utils.RandomizeValue(attackIntervalBase, attackIntervalRandomness); } }
+    private float AttackDamage { get { return Utils.RandomizeValue(attackDamageBase, attackDamageRandomness); } }
+    private float MoveInterval { get { return Utils.RandomizeValue(moveIntervalBase, moveIntervalRandomness); } }
+    
+    private Transform target;
     private FreezeReceiver freezeReceiver;
+    private Rigidbody2D rb;
 
     protected override void Start() {
         base.Start();
 
         freezeReceiver = GetComponent<FreezeReceiver>();
+        rb = GetComponent<Rigidbody2D>();
 
-        // InitHp(100f);
-
-        moveSpeed = Random.Range(0.9f * moveSpeedBase, 1.1f * moveSpeedBase);
-        distanceMargin = Random.Range(0.9f * distanceMarginBase, 1.1f * distanceMarginBase);
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (!player) player = GameObject.Find("Player");
-        if (player != null) {
-            target = player.transform.position;
+        if (!freezeReceiver || !rb) {
+            throw new Exception("Required component is missing");
         }
 
-        StartCoroutine(Shoot());
-    }
+        GameObject t = GameObject.FindGameObjectWithTag("Player");
+        if (!t) t = GameObject.Find("Player");
 
-    private void Update() {
-        if (player == null) return;
-        target = player.transform.position;
-
-        if(freezeReceiver && freezeReceiver.CanMove()) {
-            MoveTo(target);
+        if (t) {
+            target = t.transform;
         }
+
+        StartCoroutine(Attack());
+        StartCoroutine(Move());
     }
 
-    private void MoveTo(Vector3 moveTarget) {
-        
-        if(Vector3.Distance(transform.position, player.transform.position) > distanceMargin) {
-            Vector3 dir = moveTarget - transform.position;
-            dir.Normalize();
-
-            transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
-        }
-    }
-
-    private IEnumerator Shoot() {
+    private IEnumerator Attack() {
         while (true) {
+            if (!target) break;
+            
+            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity, transform);
 
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Vector3 direction = (target.position - transform.position).normalized;
 
-            Vector3 direction = target - transform.position;
-            direction.Normalize();
-
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            Bullet bulletScript = projectile.GetComponent<Bullet>();
             bulletScript.SetSpeed(10);
             bulletScript.SetDirection(direction);
 
-            yield return new WaitForSeconds(shootInterval);
+            yield return new WaitForSeconds(AttackInterval);
         }
     }
 
+    private IEnumerator Move() {
+        while (true) {
+            if (!target) break;
+
+            bool isTooCloseToTarget =
+                (transform.position - target.position).sqrMagnitude <= Math.Pow(distanceMargin, 2);
+            
+            // if (!(Vector3.Distance(transform.position, player.transform.position) > distanceMargin)) return;
+        
+            Vector2 movementDirection = (target.position - transform.position).normalized;
+            float randomAngle = Random.Range(movementDirectionInnerAngle, movementDirectionOuterAngle) * (Random.value < 0.5f ? 1 : -1);
+            movementDirection = Quaternion.AngleAxis(randomAngle, Vector3.forward) * movementDirection;
+
+            if (isTooCloseToTarget) {
+                movementDirection *= -1;
+            }
+
+            rb.AddForce(movementDirection * MovementVelocity);
+
+            if (isTooCloseToTarget) {
+                yield return new WaitForSeconds(MoveInterval * moveIntervalModifierTooClose);
+                continue;
+            }
+            
+            yield return new WaitForSeconds(MoveInterval);
+        }
+    }
 }
