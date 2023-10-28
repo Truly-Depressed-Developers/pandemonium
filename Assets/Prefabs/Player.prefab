@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4864399954554501378
 Transform:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2572451623949796188
 Transform:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5676236833957250902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -689,6 +689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517848e63a0df3f41878df15339cd5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeWeapon: {fileID: 5406549444335325534}
+  specialWeaponCollider: {fileID: 1597546606608603881}
+  crossWeapon: {fileID: 1205114636788787554}
 --- !u!1001 &86593620242713735
 PrefabInstance:
   m_ObjectHideFlags: 0
