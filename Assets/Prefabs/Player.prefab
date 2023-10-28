@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4864399954554501378}
   - component: {fileID: 3723363204254418037}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1597546606608603881}
   - component: {fileID: 2001637491021768463}
   - component: {fileID: 3611057363375793546}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: FreezeInvoker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 7536593582941651016}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   dashCooldown: 2
-  dashTime: 0.15
+  dashTime: 0.5
   dashMultiplayer: 10
   staminaCost: 20
   staminaBar: {fileID: 5681395226298368031}
@@ -584,7 +584,7 @@ MonoBehaviour:
   deathAction: 1
   damageSources:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 768
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -873,7 +873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071047258087, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Name
@@ -881,7 +881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_LocalScale.x
