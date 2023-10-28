@@ -292,6 +292,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1830432654687308839, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830432654687308839, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -343,9 +347,29 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2842374273791630494, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842374274058060859, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842374274202658490, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955667597538391712, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: shootInterval
+      value: 99999
+      objectReference: {fileID: 0}
     - target: {fileID: 7212625571637480803, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
       propertyPath: m_Name
       value: Ghost 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212625571637480803, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7212625571637480803, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
       propertyPath: m_IsActive
@@ -399,10 +423,6 @@ PrefabInstance:
     - target: {fileID: 1922127671748684341, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: m_Layer
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2001637491021768463, guid: 909631101beea024eb3d06e904187a3a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2001637491021768463, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: m_GravityScale
