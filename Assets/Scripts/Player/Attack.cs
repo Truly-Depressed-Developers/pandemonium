@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
+using Camera;
 using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace Player {
 
         public void SpecialAttack() {
             if(specialAttackActive || movement.isInDashMove()) return; 
-
+            CameraZoomIn.instance.ZoomInCamera();
             if (staminaBar) {
                 if (staminaBar.TryUse(staminaCost)) {
                     specialAttackActive = true;
@@ -43,6 +44,7 @@ namespace Player {
             specialWeaponCollider.enabled = false;
             crossWeapon.gameObject.SetActive(false);
 
+            CameraZoomIn.instance.ZoomOutCamera();
             specialAttackActive=false;
         }
     }
