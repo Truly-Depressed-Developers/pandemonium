@@ -13,11 +13,13 @@ namespace Player {
         private Collider2D specialWeaponCollider;
         [SerializeField]
         private GameObject crossWeapon;
+        [SerializeField] 
+        private Movement movement;
 
         bool specialAttackActive = false;
 
         public void SpecialAttack() {
-            if(!specialAttackActive) { 
+            if(!specialAttackActive && !movement.isInDashMove()) { 
                 specialAttackActive = true;
                 StartCoroutine(freeTheSpirit());
             }

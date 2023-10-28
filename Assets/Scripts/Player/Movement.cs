@@ -7,7 +7,7 @@ namespace Player {
     public class Movement : MonoBehaviour {
         [SerializeField] private float moveSpeed = 2f;
         [SerializeField] private float dashCooldown = 0.5f;
-        [SerializeField] private float dashTime = 0.15f;
+        [SerializeField] private float dashTime = 1.15f;
         [SerializeField] private float dashMultiplayer = 4f;
         private readonly float dashStartTime = 0.5f;
 
@@ -17,6 +17,7 @@ namespace Player {
         private float lastDashTime = float.NegativeInfinity;
 
         private FreezeReceiver freezeReceiver = null;
+        private bool inDashMove = false;
 
         private void Start() {
             freezeReceiver = GetComponent<FreezeReceiver>();
@@ -42,7 +43,10 @@ namespace Player {
             if (Time.time - lastDashTime < dashTime && Time.time > dashStartTime) {
                 playerTransform.Translate(dashDirection.y * dashMultiplayer * constCalculated * Vector3.up);
                 playerTransform.Translate(dashDirection.x * dashMultiplayer * constCalculated * Vector3.right);
+                inDashMove = true;
                 return;
+            } else {
+                inDashMove = false;
             }
 
             playerTransform.Translate(direction.y * constCalculated * Vector3.up);
@@ -53,10 +57,15 @@ namespace Player {
             if (ctx.canceled || Time.time - lastDashTime < dashCooldown + dashTime) return;
 
             // if (direction.y != 0 || direction.x != 0) {
-                dashDirection = lastDashDirection;
+            dashDirection = lastDashDirection;
+            inDashMove = true;
             // }
 
             lastDashTime = Time.time;
+        }
+
+        public bool isInDashMove() {
+            return inDashMove;
         }
     }
 }

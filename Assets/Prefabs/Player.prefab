@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 5406549444335325534}
+  movement: {fileID: 5824065628245633129}
 --- !u!114 &7741117930608105979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +694,7 @@ MonoBehaviour:
   meleeWeapon: {fileID: 5406549444335325534}
   specialWeaponCollider: {fileID: 1597546606608603881}
   crossWeapon: {fileID: 1205114636788787554}
+  movement: {fileID: 5824065628245633129}
 --- !u!1001 &86593620242713735
 PrefabInstance:
   m_ObjectHideFlags: 0
