@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 5406549444335325534}
+  movement: {fileID: 5824065628245633129}
 --- !u!114 &7741117930608105979
 MonoBehaviour:
   m_ObjectHideFlags: 0

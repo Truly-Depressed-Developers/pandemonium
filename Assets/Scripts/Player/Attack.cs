@@ -11,13 +11,16 @@ namespace Player {
         private Collider2D specialWeaponCollider;
         [SerializeField]
         private GameObject crossWeapon;
+        [SerializeField] 
+        private Movement movement;
         [SerializeField] private float staminaCost;
         [SerializeField] private StaminaBar staminaBar;
 
         bool specialAttackActive = false;
 
         public void SpecialAttack() {
-            if (specialAttackActive) return;
+            if(specialAttackActive || movement.isInDashMove()) return; 
+
             if (staminaBar) {
                 if (staminaBar.TryUse(staminaCost)) {
                     specialAttackActive = true;

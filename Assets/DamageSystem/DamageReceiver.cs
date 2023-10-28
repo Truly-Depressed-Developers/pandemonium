@@ -1,4 +1,6 @@
-using DamageSystem.Health;
+﻿using DamageSystem.Health;
+using Morok;
+using Player;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +24,8 @@ namespace DamageSystem {
         private Color healthBarUnderThresholdColor = Color.green;
         private float actualDmgReduction = 0f;
 
+        private Player.Movement movement;
+
         private enum DeathAction {
             RespawnAtInitialPosition,
             Destroy,
@@ -32,6 +36,7 @@ namespace DamageSystem {
             health = maxHealth;
             if (healthBar) healthBar.SetMaxHealth(maxHealth);
             initialPosition = transform.position;
+            movement = GetComponent<Player.Movement>();
         }
 
         private void OnCollisionEnter2D(Collision2D other) {
@@ -54,6 +59,8 @@ namespace DamageSystem {
         }
 
         public void TakeDamage(float amount) {
+            if (movement && movement.isInDashMove()) return;
+
             OnDamageReceived.Invoke(amount);
 
             if (IsUnderTreshold()) {
