@@ -15,4 +15,8 @@ public static class Utils {
             Application.Quit();
         #endif
     }
+
+    public static float RandomizeValue(float baseValue, float modifier) {
+        return Random.Range(baseValue * (1 - modifier), baseValue * (1 + modifier));
+    }
 }
