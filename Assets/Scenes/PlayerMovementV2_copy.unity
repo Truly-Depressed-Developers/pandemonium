@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 155111680}
   - component: {fileID: 155111679}
   - component: {fileID: 155111681}
+  - component: {fileID: 155111682}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -206,6 +207,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f74eefff6285d12499902406d3b4ac33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &155111682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155111678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d6bade5f1b96f4da77c4b77370810c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &370779106
@@ -639,6 +652,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2475762490016083441, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842374273791630489, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842374273791630489, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212625571637480803, guid: 03f4b746b6298bf4d991e81c5dfaa11f, type: 3}
