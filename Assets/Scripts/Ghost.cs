@@ -31,6 +31,7 @@ public class Ghost : Enemy {
     private Transform target;
     private Animator anim;
     private FreezeReceiver freezeReceiver;
+    private bool dying = false;
     private Rigidbody2D rb;
 
     protected override void Start() {
@@ -51,6 +52,8 @@ public class Ghost : Enemy {
             target = t.transform;
         }
 
+    private void MoveTo(Vector3 moveTarget) {
+        if (dying) return;
         StartCoroutine(Attack());
         StartCoroutine(Move());
     }
@@ -69,6 +72,19 @@ public class Ghost : Enemy {
 
             yield return new WaitForSeconds(AttackInterval);
         }
+    }
+
+    public void OnFreezeEnd(bool finished) {
+        if (finished) {
+            dying = true;
+            anim.Play("Free");
+        } else {
+
+        }
+    }
+
+    public void Destroy() {
+        Destroy(gameObject);
     }
 
     private IEnumerator Move() {

@@ -7,9 +7,14 @@ namespace DamageSystem {
 
         [SerializeField] private LayerMask freezeReceivers;
         [SerializeField] private float freezeTime;
+        [SerializeField] private float successHealthBonus = 20f;
+        [SerializeField] private float successStaminaBonus = 20f;
+        [SerializeField] private DamageReceiver damageReceiver;
+        [SerializeField] private StaminaBar staminaBar;
         private IEnumerator delayedCoroutine = null;
         private Action<bool> unFreezeOther;
         private Action<bool> unFreezeSelf;
+        private FreezeReceiver lastFreezeReceiver;
 
         public void CancelFreeze() {
             StopCoroutine(delayedCoroutine);
@@ -21,7 +26,7 @@ namespace DamageSystem {
             if (freezeReceivers != (freezeReceivers | 1 << other.gameObject.layer)) return;
             other.gameObject.TryGetComponent(out FreezeReceiver freezeReceiver);
             if (freezeReceiver == null) return;
-
+            lastFreezeReceiver = freezeReceiver;
             Action<bool> tempUnFreezeOther = freezeReceiver.Freeze();
             if (tempUnFreezeOther == null) return;
             unFreezeOther = tempUnFreezeOther;
@@ -42,7 +47,12 @@ namespace DamageSystem {
         private IEnumerator DelayedUnfreeze() {
             yield return new WaitForSeconds(freezeTime);
             unFreezeSelf(true);
-            unFreezeOther(true);
+            if (lastFreezeReceiver != null) {
+                unFreezeOther(true);
+            }
+
+            damageReceiver.AddHealth(successHealthBonus);
+            staminaBar.Add(successStaminaBonus);
         }
     }
 }

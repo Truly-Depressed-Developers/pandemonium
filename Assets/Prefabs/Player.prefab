@@ -197,6 +197,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   freezeTime: 2
+  successHealthBonus: 50
+  successStaminaBonus: 50
+  damageReceiver: {fileID: 7741117930608105979}
+  staminaBar: {fileID: 5681395226298368031}
 --- !u!1 &6417746580561244179
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,10 @@ public class StaminaBar : MonoBehaviour {
 
     }
 
+    public void Add(float value) {
+        slider.value += value;
+    }
+
     public void SetMaxValue(float value) {
         slider.maxValue = value;
         slider.value = value;

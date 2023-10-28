@@ -32,6 +32,14 @@ namespace DamageSystem {
             None,
         }
 
+        public void AddHealth(float amount) {
+            health = Mathf.Clamp(health + amount, 0, maxHealth);
+
+            if (healthBar) {
+                healthBar.SetHealth(health);
+            }
+        }
+
         private void Awake() {
             health = maxHealth;
             if (healthBar) healthBar.SetMaxHealth(maxHealth);
