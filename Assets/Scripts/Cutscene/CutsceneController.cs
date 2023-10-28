@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -28,11 +30,7 @@ namespace Cutscenes {
             foreach (Cutscene.CutsceneText text in cutscene.Texts)
                 StartCoroutine(ShowText(text));
             
-            if (cutscene.CutsceneImg) {
-                cutsceneImage.gameObject.SetActive(true);
-                cutsceneImage.sprite = cutscene.CutsceneImg;
-                StartCoroutine(ShowCutsceneImage(cutscene));
-            }
+            StartCoroutine(ShowCutsceneImage(cutscene));
         }
 
         public void StopCutscene() {
@@ -46,14 +44,33 @@ namespace Cutscenes {
         }
 
         private IEnumerator ShowCutsceneImage(Cutscene cutscene) {
+            cutsceneImage.color = Color.white.WithAlpha(0f);
+            Tween tween = null;
+            if (cutscene.CutsceneImg) {
+                cutsceneImage.gameObject.SetActive(true);
+                tween = cutsceneImage
+                    .DOFade(1f, cutscene.FadeIn.Duration)
+                    .SetEase(cutscene.FadeIn.Ease)
+                    .Play();
+                cutsceneImage.sprite = cutscene.CutsceneImg;
+            }
+
+            if (tween.IsActive())
+                yield return new WaitUntil(() => tween.IsPlaying());
+            
             yield return new WaitForSeconds(cutscene.Duration);
             
             StopCutscene();
-            
-            if (cutscene.Next != null)
-                DisplayCutscene(cutscene.Next);
-            else
-                cutsceneImage.gameObject.SetActive(false);
+            cutsceneImage
+                .DOFade(0f, cutscene.FadeOut.Duration)
+                .SetEase(cutscene.FadeOut.Ease)
+                .OnComplete(() => {
+                    if (cutscene.Next != null)
+                        DisplayCutscene(cutscene.Next);
+                    else
+                        cutsceneImage.gameObject.SetActive(false);
+                })
+                .Play();
         }
         
         private IEnumerator ShowText(Cutscene.CutsceneText text) {
@@ -61,17 +78,30 @@ namespace Cutscenes {
  
             RectTransform textbox = Instantiate(cutsceneTextbox, transform);
             TextMeshProUGUI cutsceneText = textbox.GetComponentInChildren<TextMeshProUGUI>();
-                
+            CanvasGroup graphic = textbox.GetComponent<CanvasGroup>();
+            graphic.alpha = 0;
+            
+            Tween tween = graphic
+                .DOFade(1f, text.FadeIn.Duration)
+                .SetEase(text.FadeIn.Ease)
+                .Play();
+            
             cutsceneText.text = text.Text;
             cutsceneText.fontSize = text.FontSize;    
             
             textbox.anchoredPosition = text.Position;
             textbox.sizeDelta = text.Size;
             textboxes.Add(textbox.gameObject);
-            
+
+            yield return new WaitUntil(() => tween.IsActive() && tween.IsPlaying());
             yield return new WaitForSeconds(text.Duration);
+
+            graphic
+                .DOFade(0f, text.FadeOut.Duration)
+                .SetEase(text.FadeOut.Ease)
+                .OnComplete(() => Destroy(textbox.gameObject))
+                .Play();
             
-            Destroy(textbox.gameObject);
             textboxes.Remove(textbox.gameObject);
         }
     }
