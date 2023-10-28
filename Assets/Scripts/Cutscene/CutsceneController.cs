@@ -31,8 +31,10 @@ namespace Cutscenes {
         }
 
         private IEnumerator PlayCutscene(Cutscene cutscene) {
-            cutsceneImage.sprite = cutscene.CutsceneImg;
-            cutsceneImage.gameObject.SetActive(true);
+            if (cutscene.CutsceneImg) {
+                cutsceneImage.gameObject.SetActive(true);
+                cutsceneImage.sprite = cutscene.CutsceneImg;
+            }
 
             foreach (Cutscene.CutsceneText text in cutscene.Texts) {
                 yield return new WaitForSeconds(text.Delay);
