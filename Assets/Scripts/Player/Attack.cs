@@ -1,39 +1,32 @@
+using System;
 using System.Collections;
 using Camera;
 using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player {
     public class Attack : MonoBehaviour {
-
-        [SerializeField]
-        private MeleeWeapon meleeWeapon;
-        [SerializeField]
-        private Collider2D specialWeaponCollider;
-        [SerializeField]
-        private GameObject crossWeapon;
-        [SerializeField] 
-        private Movement movement;
+        [SerializeField] private MeleeWeapon meleeWeapon;
+        [SerializeField] private Collider2D specialWeaponCollider;
+        [SerializeField] private GameObject crossWeapon;
+        [SerializeField] private Movement movement;
         [SerializeField] private float staminaCost;
         [SerializeField] private StaminaBar staminaBar;
 
-        bool specialAttackActive = false;
+        private bool specialAttackActive;
 
-        public void SpecialAttack() {
-            if(specialAttackActive || movement.isInDashMove()) return; 
+        public void SpecialAttack(InputAction.CallbackContext ctx) {
+            if (ctx.ReadValue<float>() == 0f) return;
+            if (specialAttackActive || movement.isInDashMove()) return;
+            if (!staminaBar || !staminaBar.TryUse(staminaCost)) return;
+            
             CameraZoomIn.instance.ZoomInCamera();
-            if (staminaBar) {
-                if (staminaBar.TryUse(staminaCost)) {
-                    specialAttackActive = true;
-                    StartCoroutine(freeTheSpirit());
-                }
-            } else {
-                specialAttackActive = true;
-                StartCoroutine(freeTheSpirit());
-            }
+            specialAttackActive = true;
+            StartCoroutine(FreeTheSpirit());
         }
 
-        private IEnumerator freeTheSpirit() {
+        private IEnumerator FreeTheSpirit() {
             meleeWeapon.gameObject.SetActive(false);
             specialWeaponCollider.enabled = true;
             crossWeapon.gameObject.SetActive(true);
@@ -45,7 +38,7 @@ namespace Player {
             crossWeapon.gameObject.SetActive(false);
 
             CameraZoomIn.instance.ZoomOutCamera();
-            specialAttackActive=false;
+            specialAttackActive = false;
         }
     }
 }
