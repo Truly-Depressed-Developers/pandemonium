@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DamageSystem;
 using DamageSystem.Health;
 
 public class Ghost : Enemy {
@@ -12,16 +13,14 @@ public class Ghost : Enemy {
     protected override void Start() {
         base.Start();
 
-        InitHp(100f);
+        // InitHp(100f);
 
         target = new Vector3(0, 0, 0);
         StartCoroutine(Shoot());
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.A)) {
-            Hit(5f);
-        }
+        
     }
 
     private IEnumerator Shoot() {
