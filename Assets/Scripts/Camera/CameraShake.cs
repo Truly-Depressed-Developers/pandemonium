@@ -6,8 +6,8 @@ namespace Camera {
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     public class CameraShake : MonoBehaviour {
         private CinemachineVirtualCamera cinemachineVirtualCamera;
-        private float shakeIntensity = 20f;
-        private float shakeTime = 0.2f;
+        [SerializeField] private float shakeIntensity = 20f;
+        [SerializeField] private float shakeTime = 0.2f;
 
         private float timer;
 

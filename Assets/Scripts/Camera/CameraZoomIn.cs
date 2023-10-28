@@ -12,9 +12,9 @@ namespace Camera {
         }
         
         private CinemachineVirtualCamera cinemachineVirtualCamera;
-        private float defaultScope = 8.25f;
-        private float zoomInScope = 5f;
-        private float zoomSpeed = 13f;
+        [SerializeField] private float defaultScope = 8.25f;
+        [SerializeField] private float zoomInScope = 5f;
+        [SerializeField] private float zoomSpeed = 13f;
 
         private CameraZoomStatus cameraZoomStatus = CameraZoomStatus.Static;
 
@@ -23,6 +23,7 @@ namespace Camera {
         private void Awake() {
             instance = this;
             cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+            cinemachineVirtualCamera.m_Lens.OrthographicSize = defaultScope;
         }
 
         public void ZoomInCamera() {
