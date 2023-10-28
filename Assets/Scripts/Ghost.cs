@@ -35,6 +35,7 @@ public class Ghost : Enemy {
     }
 
     private void Update() {
+        if (player == null) return;
         target = player.transform.position;
         MoveTo(target);
     }
