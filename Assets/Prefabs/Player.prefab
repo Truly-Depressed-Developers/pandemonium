@@ -696,7 +696,7 @@ MonoBehaviour:
   meleeWeapon: {fileID: 5406549444335325534}
   specialWeaponCollider: {fileID: 1597546606608603881}
   crossWeapon: {fileID: 1205114636788787554}
-  movement: {fileID: 0}
+  movement: {fileID: 5824065628245633129}
   staminaCost: 40
   staminaBar: {fileID: 5681395226298368031}
 --- !u!1001 &86593620242713735

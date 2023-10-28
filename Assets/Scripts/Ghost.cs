@@ -74,4 +74,16 @@ public class Ghost : Enemy {
         }
     }
 
+    public void OnFreezeEnd(bool finished) {
+        if (finished) {
+            anim.Play("Free");
+        } else {
+            
+        }
+    }
+
+    public void Destroy() {
+        Destroy(gameObject);
+    }
+
 }
