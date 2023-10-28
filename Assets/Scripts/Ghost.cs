@@ -17,8 +17,12 @@ public class Ghost : Enemy {
     public float shootInterval = 2.0f;
     private GameObject player;
 
+    private FreezeReceiver freezeReceiver;
+
     protected override void Start() {
         base.Start();
+
+        freezeReceiver = GetComponent<FreezeReceiver>();
 
         // InitHp(100f);
 
@@ -37,7 +41,10 @@ public class Ghost : Enemy {
     private void Update() {
         if (player == null) return;
         target = player.transform.position;
-        MoveTo(target);
+
+        if(freezeReceiver && freezeReceiver.CanMove()) {
+            MoveTo(target);
+        }
     }
 
     private void MoveTo(Vector3 moveTarget) {
