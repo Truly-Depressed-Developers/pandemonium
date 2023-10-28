@@ -38,7 +38,7 @@ namespace Player {
         public void OnIndicateMovement(InputAction.CallbackContext ctx) {
             direction = ctx.ReadValue<Vector2>().normalized;
 
-            if (direction.y != 0 || direction.x != 0) {
+            if (!playerAttack.SpecialAttackActive && (direction.y != 0 || direction.x != 0)) {
                 anim.SetFloat("X", direction.x);
                 anim.SetFloat("Y", direction.y);
                 anim.SetFloat("SPEED", 1f);
