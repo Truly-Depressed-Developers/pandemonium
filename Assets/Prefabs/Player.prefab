@@ -696,6 +696,7 @@ MonoBehaviour:
   meleeWeapon: {fileID: 5406549444335325534}
   specialWeaponCollider: {fileID: 1597546606608603881}
   crossWeapon: {fileID: 1205114636788787554}
+  movement: {fileID: 0}
   staminaCost: 40
   staminaBar: {fileID: 5681395226298368031}
 --- !u!1001 &86593620242713735
@@ -827,9 +828,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6815553925068911078}
     m_Modifications:
+    - target: {fileID: 4667928071047258087, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Name
       value: MeleeWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_LocalPosition.x

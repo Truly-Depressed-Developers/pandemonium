@@ -4,6 +4,7 @@ using DamageSystem;
 using DamageSystem.Health;
 
 public class Ghost : Enemy {
+    public Animator anim;
 
     [SerializeField]
     private GameObject bulletPrefab;
@@ -48,11 +49,11 @@ public class Ghost : Enemy {
     }
 
     private void MoveTo(Vector3 moveTarget) {
-        
         if(Vector3.Distance(transform.position, player.transform.position) > distanceMargin) {
             Vector3 dir = moveTarget - transform.position;
+            anim.SetFloat("X", dir.x);
+            anim.SetFloat("Y", dir.y);
             dir.Normalize();
-
             transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
         }
     }
