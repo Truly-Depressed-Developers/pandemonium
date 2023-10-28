@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: 2.4
   m_EditorClassIdentifier: 
-  <CutsceneImg>k__BackingField: {fileID: 0}
+  <Duration>k__BackingField: 5
+  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 066bdcc86e31c7f44bbc82bf20767457, type: 3}
   <Texts>k__BackingField:
   - <Text>k__BackingField: "Mimo stara\u0144, mimo ch\u0119ci"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Jam ofiar\u0105 jest demona"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   <Next>k__BackingField: {fileID: 11400000, guid: 1586a4b95eaf56248b22c0d62582a15b, type: 2}

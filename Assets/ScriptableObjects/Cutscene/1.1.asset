@@ -12,26 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: 1.1
   m_EditorClassIdentifier: 
-  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 7f29ea85ae23ee24594450dd2a9f15be, type: 3}
+  <Duration>k__BackingField: 12
+  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 412f12641ce1ac3478977a6cf4632935, type: 3}
   <Texts>k__BackingField:
   - <Text>k__BackingField: "Ah, ju\u017C ta pora"
-    <Delay>k__BackingField: 2
-    <Duration>k__BackingField: 3
-    <Position>k__BackingField: {x: 610, y: 20}
-    <Size>k__BackingField: {x: 300, y: 60}
+    <Delay>k__BackingField: 0
+    <Duration>k__BackingField: 20
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 522, y: 413}
+    <Size>k__BackingField: {x: 300, y: 50}
   - <Text>k__BackingField: Dziady
-    <Delay>k__BackingField: 1
-    <Duration>k__BackingField: 2
-    <Position>k__BackingField: {x: 685, y: 20}
-    <Size>k__BackingField: {x: 150, y: 60}
-  - <Text>k__BackingField: "pradawny rytua\u0142, by pom\xF3c duszom"
     <Delay>k__BackingField: 2
-    <Duration>k__BackingField: 5
-    <Position>k__BackingField: {x: 460, y: 20}
-    <Size>k__BackingField: {x: 600, y: 60}
+    <Duration>k__BackingField: 20
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 552, y: 339}
+    <Size>k__BackingField: {x: 200, y: 60}
+  - <Text>k__BackingField: "pradawny rytua\u0142, by pom\xF3c duszom"
+    <Delay>k__BackingField: 5
+    <Duration>k__BackingField: 20
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 335, y: 194}
+    <Size>k__BackingField: {x: 650, y: 50}
   - <Text>k__BackingField: "w podr\xF3zy do nieba"
-    <Delay>k__BackingField: 0.5
-    <Duration>k__BackingField: 3
-    <Position>k__BackingField: {x: 585, y: 20}
-    <Size>k__BackingField: {x: 350, y: 60}
+    <Delay>k__BackingField: 8
+    <Duration>k__BackingField: 20
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 615, y: 125}
+    <Size>k__BackingField: {x: 370, y: 50}
   <Next>k__BackingField: {fileID: 11400000, guid: 6c1297a7ed525a242940c3fc4f46fa6c, type: 2}

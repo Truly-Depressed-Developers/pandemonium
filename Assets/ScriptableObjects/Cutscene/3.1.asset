@@ -12,66 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: 3.1
   m_EditorClassIdentifier: 
-  <CutsceneImg>k__BackingField: {fileID: 0}
+  <Duration>k__BackingField: 5
+  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 066bdcc86e31c7f44bbc82bf20767457, type: 3}
   <Texts>k__BackingField:
   - <Text>k__BackingField: "G\u0142upcze..."
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: Ja to Morok, duch pradawny
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "I cho\u0107 s\u0142abym, \u015Bwiat podbij\u0119"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Czes\u0142aw, Iwo, Mieszko, Borys"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Ci polegli, mi\u0119 wzmocnili"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Ofiara jedna, a cel spe\u0142ni\u0119"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Ty, m\xF3j bracie"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Dusz\u0119 tw\u0105 oddaj Morokowi!"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "\"Cykl zako\u0144czy\u0107, spos\xF3b jeden\""
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Mnie op\u0119ta\u0107, w tem si\u0119 rzuci\u0107"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "I cho\u0107 w\u0142asne \u017Cyci\u0119 strac\u0119"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   - <Text>k__BackingField: "Jego rz\u0105dy w ten obali\u0107"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   <Next>k__BackingField: {fileID: 0}

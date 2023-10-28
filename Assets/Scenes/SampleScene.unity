@@ -664,6 +664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 4463438790730747309, guid: 2681d908b3b66104c921256776b0bcf6, type: 3}
+      propertyPath: startCutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: caf1a669e4d997c4b89a1918f558a9dd, type: 2}
     - target: {fileID: 7710759400690026371, guid: 2681d908b3b66104c921256776b0bcf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

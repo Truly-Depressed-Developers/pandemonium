@@ -12,26 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: 1.2
   m_EditorClassIdentifier: 
-  <CutsceneImg>k__BackingField: {fileID: 0}
+  <Duration>k__BackingField: 8
+  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 066bdcc86e31c7f44bbc82bf20767457, type: 3}
   <Texts>k__BackingField:
   - <Text>k__BackingField: "Ciemno wsz\u0119dzie"
     <Delay>k__BackingField: 0
-    <Duration>k__BackingField: 2
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Size>k__BackingField: {x: 0, y: 0}
+    <Duration>k__BackingField: 10
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 516, y: 483}
+    <Size>k__BackingField: {x: 320, y: 50}
   - <Text>k__BackingField: "G\u0142ucho wsz\u0119dzie"
-    <Delay>k__BackingField: 0
-    <Duration>k__BackingField: 2
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Size>k__BackingField: {x: 0, y: 0}
+    <Delay>k__BackingField: 1.5
+    <Duration>k__BackingField: 10
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 686, y: 417}
+    <Size>k__BackingField: {x: 320, y: 50}
   - <Text>k__BackingField: "Co to b\u0119dzie?"
-    <Delay>k__BackingField: 0
-    <Duration>k__BackingField: 2
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Size>k__BackingField: {x: 0, y: 0}
+    <Delay>k__BackingField: 3
+    <Duration>k__BackingField: 10
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 516, y: 265}
+    <Size>k__BackingField: {x: 290, y: 50}
   - <Text>k__BackingField: "Co to b\u0119dzie?"
-    <Delay>k__BackingField: 0
-    <Duration>k__BackingField: 2
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Size>k__BackingField: {x: 0, y: 0}
+    <Delay>k__BackingField: 4.5
+    <Duration>k__BackingField: 10
+    <FontSize>k__BackingField: 24
+    <Position>k__BackingField: {x: 686, y: 197}
+    <Size>k__BackingField: {x: 290, y: 50}
   <Next>k__BackingField: {fileID: 11400000, guid: caf1a669e4d997c4b89a1918f558a9dd, type: 2}

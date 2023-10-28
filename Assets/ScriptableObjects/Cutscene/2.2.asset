@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: 2.2
   m_EditorClassIdentifier: 
-  <CutsceneImg>k__BackingField: {fileID: 0}
+  <Duration>k__BackingField: 5
+  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 066bdcc86e31c7f44bbc82bf20767457, type: 3}
   <Texts>k__BackingField:
   - <Text>k__BackingField: "Tu b\u0119dzie demon"
     <Delay>k__BackingField: 0
     <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 0, y: 0}
     <Size>k__BackingField: {x: 0, y: 0}
   <Next>k__BackingField: {fileID: 11400000, guid: 5422ff963f7bb0a4ea063c0a14d2a6c4, type: 2}

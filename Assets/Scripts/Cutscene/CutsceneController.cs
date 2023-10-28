@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -49,7 +49,7 @@ namespace Cutscenes {
             yield return new WaitForSeconds(cutscene.Duration);
             
             StopCutscene();
-            
+
             if (cutscene.Next != null)
                 DisplayCutscene(cutscene.Next);
             else
