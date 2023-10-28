@@ -13,5 +13,9 @@ namespace DamageSystem.Health {
             slider.maxValue = health;
             slider.value = health;
         }
+
+        public void SetColor(Color color) {
+            slider.fillRect.GetComponent<Image>().color = color;
+        }
     }
 }

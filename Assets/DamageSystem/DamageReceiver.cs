@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DamageSystem.Health;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,9 +15,11 @@ namespace DamageSystem {
         
         
         [SerializeField]
-        private float treshold = 0f;
+        private float threshold = 0f;
         [SerializeField]
         private float finalDmgReduction = 0f;
+        [SerializeField]
+        private Color healthBarUnderThresholdColor = Color.green;
         private float actualDmgReduction = 0f;
 
         private enum DeathAction {
@@ -53,6 +52,10 @@ namespace DamageSystem {
         public void TakeDamage(float amount) {
             OnDamageReceived.Invoke(amount);
 
+            if (IsUnderTreshold()) {
+                healthBar.SetColor(healthBarUnderThresholdColor);
+            }
+
             actualDmgReduction = IsUnderTreshold() ? finalDmgReduction : 0f;
 
             health -= amount * (1f - actualDmgReduction);
@@ -77,7 +80,7 @@ namespace DamageSystem {
             }
         }
         public bool IsUnderTreshold() {
-            return health < maxHealth * treshold;
+            return health < maxHealth * threshold;
         }
     }
 }
