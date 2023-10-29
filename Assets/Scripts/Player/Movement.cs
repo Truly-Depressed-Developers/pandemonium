@@ -13,6 +13,7 @@ namespace Player {
         [SerializeField] private StaminaBar staminaBar;
 
         [SerializeField] private Animator anim;
+        [SerializeField] private AudioSource dodgeSound;
 
         private readonly float dashStartTime = 0.5f;
 
@@ -77,6 +78,7 @@ namespace Player {
             if (!staminaBar.TryUse(staminaCost)) return;
             // if (direction.y != 0 || direction.x != 0) {
             dashDirection = lastDashDirection;
+            dodgeSound.Play();
             inDashMove = true;
             // }
 
