@@ -20,8 +20,8 @@ MonoBehaviour:
     <Ease>k__BackingField: 0
     <Duration>k__BackingField: 0
   <FadeOut>k__BackingField:
-    <Ease>k__BackingField: 7
-    <Duration>k__BackingField: 0.3
+    <Ease>k__BackingField: 0
+    <Duration>k__BackingField: 0
   <Texts>k__BackingField:
   - <Text>k__BackingField: Czego potrzebujesz, duszeczko?
     <Delay>k__BackingField: 2
@@ -95,5 +95,5 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  <Next>k__BackingField: {fileID: 0}
+  <Next>k__BackingField: {fileID: 11400000, guid: 041b9b86f5a30fd45889b4bc9557bcb8, type: 2}
   <TimeLine>k__BackingField: {fileID: 0}

@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BlockPlayerMovement>k__BackingField: 1
   <UseCinematicStripes>k__BackingField: 1
-  <Duration>k__BackingField: 3.5
+  <Duration>k__BackingField: 5
   <CutsceneImg>k__BackingField: {fileID: 21300000, guid: cc12409ec31f18c4f9afb939803d8979, type: 3}
   <FadeIn>k__BackingField:
-    <Ease>k__BackingField: 7
-    <Duration>k__BackingField: 0.3
+    <Ease>k__BackingField: 0
+    <Duration>k__BackingField: 0
   <FadeOut>k__BackingField:
     <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
   <Texts>k__BackingField:
   - <Text>k__BackingField: "Cicho wsz\u0119dzie..."
     <Delay>k__BackingField: 1
-    <Duration>k__BackingField: 3
+    <Duration>k__BackingField: 4
     <FontSize>k__BackingField: 36
     <Position>k__BackingField: {x: 660, y: 400}
     <Size>k__BackingField: {x: 600, y: 60}
@@ -35,5 +35,5 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  <Next>k__BackingField: {fileID: 0}
+  <Next>k__BackingField: {fileID: 11400000, guid: ecae9aedd3fafb148ba3bfe46661483b, type: 2}
   <TimeLine>k__BackingField: {fileID: 0}
