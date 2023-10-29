@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 namespace Cutscenes {
@@ -13,6 +14,7 @@ namespace Cutscenes {
         [SerializeField] private RectTransform cutsceneTextbox;
         
         [SerializeField] private Image cutsceneImage;
+        [SerializeField] private PlayableDirector director;
 
         private Cutscene currentCutscene;
         private List<GameObject> textboxes = new();
@@ -26,6 +28,14 @@ namespace Cutscenes {
             }
             
             currentCutscene = cutscene;
+
+            if (cutscene.TimeLine) {
+                if (director.state == PlayState.Playing)
+                    director.Stop();
+                
+                director.playableAsset = cutscene.TimeLine;
+                director.Play();
+            }
 
             foreach (Cutscene.CutsceneText text in cutscene.Texts)
                 StartCoroutine(ShowText(text));

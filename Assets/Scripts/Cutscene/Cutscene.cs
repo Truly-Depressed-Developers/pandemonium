@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Cutscenes {
     [CreateAssetMenu(menuName = "TDD/Cutscene", order = 0)]
@@ -14,7 +16,8 @@ namespace Cutscenes {
 
         [field: SerializeField] public List<CutsceneText> Texts { get; private set; } = new();
 
-        [field: SerializeField, ] public Cutscene Next { get; private set; }
+        [field: SerializeField] public Cutscene Next { get; private set; }
+        [field: SerializeField] public PlayableAsset TimeLine { get; private set; }
         
         [Serializable]
         public class CutsceneText {
