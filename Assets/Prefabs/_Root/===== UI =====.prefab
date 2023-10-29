@@ -1000,6 +1000,7 @@ MonoBehaviour:
   director: {fileID: 4059919339472713587}
   topStripe: {fileID: 3445368296138990252}
   bottomStripe: {fileID: 5170165227818815549}
+  playerHud: {fileID: 0}
 --- !u!320 &4059919339472713587
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -2028,7 +2029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2730883580616155080
 RectTransform:
   m_ObjectHideFlags: 0

@@ -829,10 +829,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1117918731565841156}
     m_Modifications:
+    - target: {fileID: 338512036924649316, guid: 909631101beea024eb3d06e904187a3a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309513261570525001, guid: 909631101beea024eb3d06e904187a3a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2584485077173172081, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 6993000172582293848}
+    - target: {fileID: 2980663829540324933, guid: 909631101beea024eb3d06e904187a3a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3611057363375793546, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: staminaBar
       value: 
@@ -889,6 +901,10 @@ PrefabInstance:
       propertyPath: OnDamageReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2699780134028233594}
+    - target: {fileID: 7843232356097056732, guid: 909631101beea024eb3d06e904187a3a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137890349518843395, guid: 909631101beea024eb3d06e904187a3a, type: 3}
       propertyPath: m_Name
       value: Player

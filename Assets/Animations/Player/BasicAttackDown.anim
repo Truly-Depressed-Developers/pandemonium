@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BasicAttackRight
+  m_Name: BasicAttackDown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -55,7 +55,16 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.5, y: 0.5, z: 0.5}
+        value: {x: 0.5, y: -0.5, z: 0.5}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.56666666
+        value: {x: 0.5, y: -0.5, z: 0.5}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -82,36 +91,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5833333
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_FlipX
-    path: Inner
-    classID: 212
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -132,7 +111,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: MeleeWeapon/Inner/HorizontalCollider
+    path: MeleeWeapon/Inner/VerticalCollider
     classID: 60
     script: {fileID: 0}
     flags: 0
@@ -140,15 +119,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1595726436, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
+      value: {fileID: -1906592292, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
     - time: 0.13333334
-      value: {fileID: -977760057, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - time: 0.25
-      value: {fileID: -1428961609, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - time: 0.38333333
-      value: {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - time: 0.5833333
-      value: {fileID: -1623369479, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
+      value: {fileID: -600034858, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
+    - time: 0.28333333
+      value: {fileID: 484114316, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
+    - time: 0.41666666
+      value: {fileID: 1943491050, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
     attribute: m_Sprite
     path: Inner
     classID: 212
@@ -171,16 +148,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2901419213
-      attribute: 555744692
+      path: 1696241262
+      attribute: 3
       script: {fileID: 0}
-      typeID: 212
+      typeID: 4
       customType: 0
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 809272963
+      path: 1356960617
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 60
@@ -197,27 +174,17 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 1696241262
-      attribute: 3
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1595726436, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - {fileID: -977760057, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - {fileID: -1428961609, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
-    - {fileID: -1623369479, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
+    - {fileID: -1906592292, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
+    - {fileID: -600034858, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
+    - {fileID: 484114316, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
+    - {fileID: 1943491050, guid: 377d988d1383cbd48b44ba660d678386, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -338,7 +305,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -357,9 +324,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_FlipX
-    path: Inner
-    classID: 212
+    attribute: m_Enabled
+    path: MeleeWeapon/Inner/VerticalCollider
+    classID: 60
     script: {fileID: 0}
     flags: 0
   - serializedVersion: 2
@@ -398,7 +365,16 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5
+        value: -0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.56666666
+        value: -0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -450,36 +426,6 @@ AnimationClip:
     attribute: m_LocalScale.z
     path: MeleeWeapon
     classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5833333
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: MeleeWeapon/Inner/HorizontalCollider
-    classID: 60
     script: {fileID: 0}
     flags: 0
   m_EulerEditorCurves: []
