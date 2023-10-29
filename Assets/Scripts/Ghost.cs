@@ -24,7 +24,9 @@ public class Ghost : Enemy {
     [SerializeField] private float attackDamageRandomness = 0.3f;
     [SerializeField] private float projectileSpeedBase = 6f;
     [SerializeField] private float projectileSpeedRandomness = 0.2f;
-    
+
+    [SerializeField] private AudioSource freeSound;
+
     private float MovementVelocity { get { return Utils.RandomizeValue(moveVelocityBase, moveVelocityRandomness); } }
     private float AttackInterval { get { return Utils.RandomizeValue(attackIntervalBase, attackIntervalRandomness); } }
     private float AttackDamage { get { return Utils.RandomizeValue(attackDamageBase, attackDamageRandomness); } }
@@ -84,7 +86,8 @@ public class Ghost : Enemy {
     public void OnFreezeEnd(bool finished) {
         if (!finished) return;
         alive = false;
-        
+
+        freeSound.Play();
         anim.Play("Free");
     }
 

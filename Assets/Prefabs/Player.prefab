@@ -10278,6 +10278,7 @@ MonoBehaviour:
   staminaCost: 20
   staminaBar: {fileID: 0}
   anim: {fileID: 7536593582941651016}
+  dodgeSound: {fileID: 5652553146790869666}
   freezeReceiver: {fileID: 3588002284269296598}
   playerAttack: {fileID: 2584485077173172081}
   rb: {fileID: 5120548993355682653}
