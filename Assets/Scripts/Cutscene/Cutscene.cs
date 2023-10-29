@@ -8,6 +8,7 @@ using UnityEngine.Timeline;
 namespace Cutscenes {
     [CreateAssetMenu(menuName = "TDD/Cutscene", order = 0)]
     public class Cutscene : ScriptableObject {
+        [field: SerializeField] public bool BlockPlayerMovement { get; private set; } = true;
         [field: SerializeField] public float Duration { get; private set; }
         [field: SerializeField] public Sprite CutsceneImg { get; private set; }
         
