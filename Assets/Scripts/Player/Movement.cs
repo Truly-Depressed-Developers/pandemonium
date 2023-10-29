@@ -1,5 +1,6 @@
 ﻿using Cutscenes;
 using DamageSystem;
+using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,6 +45,7 @@ namespace Player {
         }
 
         public void OnIndicateMovement(InputAction.CallbackContext ctx) {
+            Debug.Log("MOVE");
             direction = ctx.ReadValue<Vector2>().normalized;
 
             if (!playerAttack.SpecialAttackActive && (direction.y != 0 || direction.x != 0)) {
