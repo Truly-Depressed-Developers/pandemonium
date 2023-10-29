@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BlockPlayerMovement>k__BackingField: 1
   <UseCinematicStripes>k__BackingField: 1
-  <Duration>k__BackingField: 8
+  <Duration>k__BackingField: 5.5
   <CutsceneImg>k__BackingField: {fileID: 0}
   <FadeIn>k__BackingField:
     <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
   <FadeOut>k__BackingField:
-    <Ease>k__BackingField: 7
-    <Duration>k__BackingField: 0.3
+    <Ease>k__BackingField: 0
+    <Duration>k__BackingField: 0
   <Texts>k__BackingField:
-  - <Text>k__BackingField: 'Dobrawa...?  '
+  - <Text>k__BackingField: "Mimo stara\u0144, mimo ch\u0119ci  "
     <Delay>k__BackingField: 1
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
@@ -35,7 +35,7 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "Les\u0142aw...?"
+  - <Text>k__BackingField: "Jam ofiar\u0105 jest demona...  "
     <Delay>k__BackingField: 3
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
@@ -47,17 +47,5 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "Co si\u0119 sta\u0142o...?!"
-    <Delay>k__BackingField: 5
-    <Duration>k__BackingField: 2
-    <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 660, y: 400}
-    <Size>k__BackingField: {x: 600, y: 60}
-    <FadeIn>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-    <FadeOut>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-  <Next>k__BackingField: {fileID: 0}
+  <Next>k__BackingField: {fileID: 11400000, guid: 4399637ee8a51374593aac3756dfe0f2, type: 2}
   <TimeLine>k__BackingField: {fileID: 0}
