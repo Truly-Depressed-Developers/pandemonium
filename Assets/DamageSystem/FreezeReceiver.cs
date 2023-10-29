@@ -4,9 +4,6 @@ using UnityEngine.Events;
 
 namespace DamageSystem {
     public class FreezeReceiver : MonoBehaviour {
-
-        private static bool anyoneFreezed = false;
-
         public UnityEvent<bool> onFreezeEnd;
         public UnityEvent onFreeze;
         private bool freezed = false;
@@ -14,12 +11,9 @@ namespace DamageSystem {
         [SerializeField] private DamageReceiver damageReceiver;
 
         public Action<bool> Freeze() {
-            if (!CanBeFreezed() || (freezeOnlyUnderTreshold && anyoneFreezed)) return null;
+            if (!CanBeFreezed()) return null;
             onFreeze.Invoke();
             freezed = true;
-            if (freezeOnlyUnderTreshold) {
-                anyoneFreezed = true;
-            }
             Debug.Log("Freezed " + gameObject.name);
             return Unfreeze;
         }
@@ -29,9 +23,6 @@ namespace DamageSystem {
                 Debug.Log("Unfreezed " + gameObject.name);
             
             freezed = false;
-            if (freezeOnlyUnderTreshold) {
-                anyoneFreezed = false;
-            }
             onFreezeEnd.Invoke(finished);
         }
 
