@@ -232,8 +232,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -483953097
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.18279243, g: 1, b: 0, a: 1}
@@ -343,8 +343,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa85609c5c1c16e4e880539969ffc167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnIdleAttackTime: 1
+  morokDifficulty: 0
   projectilePrefab: {fileID: 5675739149635373967, guid: 80a5f5eec144a1845bca98eb04a0927e, type: 3}
-  projectileConfig: {fileID: 11400000, guid: 43c478d0138c4204fb315bd81b271468, type: 2}
+  projectileAttackConfig: {fileID: 11400000, guid: 43c478d0138c4204fb315bd81b271468, type: 2}
+  projectileAttackCooldown: 1.5
+  aerialAttackRepeats: 4
+  aerialAttackRepeatCooldown: 0.4
+  aerialAttackCooldown: 0.7
+  pentagramPrefab: {fileID: 1353986358975579146, guid: df8b04544e873234b92047041929ea2a, type: 3}
+  laserAttackRepeats: 3
+  laserAttackRepeatCooldown: 0.8
+  laserAttackCooldown: 5
+  laserPrefab: {fileID: 190097593645156756, guid: c9df7ab0acd11af47acb5b582f581800, type: 3}
+  bonusProjectileAttackConfig: {fileID: 11400000, guid: f2b397664752c5d47b0f95ae290cc34f, type: 2}
+  bonusProjectileAttackChance: 0.1
 --- !u!114 &8648987705082869299
 MonoBehaviour:
   m_ObjectHideFlags: 0

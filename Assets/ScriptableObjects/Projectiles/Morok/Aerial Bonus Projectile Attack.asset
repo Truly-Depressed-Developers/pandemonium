@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 623d3d4fb2f0c224e9993a718a8f0d68, type: 3}
-  m_Name: Morok
+  m_Name: Aerial Bonus Projectile Attack
   m_EditorClassIdentifier: 
-  initialSpeed: 1
+  initialSpeed: 0
   changeSettings:
     mode: 0
-    value: 14
-    threshold: 20
-  lifetime: 3
+    value: 2
+    threshold: 3
+  lifetime: 5
