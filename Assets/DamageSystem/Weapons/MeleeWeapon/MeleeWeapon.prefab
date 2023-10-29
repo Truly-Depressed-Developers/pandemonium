@@ -27,9 +27,9 @@ Transform:
   m_GameObject: {fileID: 4667928071047258087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.1, z: -0.2}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 1, y: 0, z: -0.2}
+  m_LocalScale: {x: 10, y: 16, z: 10}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4667928071294327198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4667928071047258087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -92,7 +92,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4667928071047258087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -129,11 +129,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.099999994, y: -0.099999994}
-      - {x: -0.02581212, y: -0.100126356}
-      - {x: 0.09997743, y: 0.0600347}
-      - {x: 0.099999994, y: 0.099999994}
-      - {x: 0.060060132, y: 0.09994332}
+    - - {x: -0.0987046, y: -0.061947748}
+      - {x: 0.097250454, y: -0.062883735}
+      - {x: 0.09868203, y: 0.03412679}
+      - {x: 0.02098087, y: 0.074901715}
+      - {x: -0.0992735, y: 0.10803955}
       - {x: -0.09988285, y: -0.025693417}
   m_UseDelaunayMesh: 0
 --- !u!1 &4667928071294327193
@@ -166,7 +166,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4667928071047258084}
   - {fileID: 2906980254796199182}
@@ -210,6 +210,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audio: {fileID: 470097838381312984}
+  playerAnim: {fileID: 0}
 --- !u!50 &4847406759165690285
 Rigidbody2D:
   serializedVersion: 4
