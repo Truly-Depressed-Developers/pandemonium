@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DamageSystem {
@@ -11,52 +12,62 @@ namespace DamageSystem {
         [SerializeField] private float successStaminaBonus = 20f;
         [SerializeField] private DamageReceiver damageReceiver;
         [SerializeField] private StaminaBar staminaBar;
-        private IEnumerator delayedCoroutine = null;
-        private Action<bool> unFreezeOther;
+        private Coroutine delayedCoroutine;
+        private List<Action<bool>> unFreezeOtherList = new();
         private Action<bool> unFreezeSelf;
-        private FreezeReceiver lastFreezeReceiver;
 
         public void CancelFreeze() {
-            StopCoroutine(delayedCoroutine);
-            unFreezeSelf(false);
-            unFreezeOther(false);
+            if (unFreezeOtherList.Count > 0) {
+                StopCoroutine(delayedCoroutine);
+                delayedCoroutine = null;
+            }
+            Unfreeze(false);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
+            // Check freezing mask
             if (freezeReceivers != (freezeReceivers | 1 << other.gameObject.layer)) 
                 return;
             
+            // Try get FreezeReceiver
             if (!other.gameObject.TryGetComponent(out FreezeReceiver freezeReceiver)) 
                 return;
             
-            lastFreezeReceiver = freezeReceiver;
+            // Try to freeze target
             Action<bool> tempUnFreezeOther = freezeReceiver.Freeze();
-            if (tempUnFreezeOther == null)
+            if (tempUnFreezeOther == null) 
                 return;
-            
-            unFreezeOther = tempUnFreezeOther;
-            
 
-            Action<bool> tempUnFreezeSelf = GetComponentInParent<FreezeReceiver>().Freeze();
-            Debug.Log(tempUnFreezeSelf);
-            // if (tempUnFreezeSelf != null) {
-            unFreezeSelf = tempUnFreezeSelf;
-            // }
-
-            delayedCoroutine = DelayedUnfreeze();
-            StartCoroutine(delayedCoroutine);
+            // Freeze self & run coroutine only once per attack
+            if (unFreezeOtherList.Count == 0) {
+                unFreezeSelf = GetComponentInParent<FreezeReceiver>().Freeze();
+                delayedCoroutine = StartCoroutine(DelayedUnfreeze());
+            }
+            
+            // Add target unfreeze function to list
+            unFreezeOtherList.Add(tempUnFreezeOther);
         }
 
 
         private IEnumerator DelayedUnfreeze() {
             yield return new WaitForSeconds(freezeTime);
-            unFreezeSelf(true);
-            if (lastFreezeReceiver != null) {
-                unFreezeOther(true);
-            }
+            Unfreeze(true);
 
             damageReceiver.AddHealth(successHealthBonus);
             staminaBar.Add(successStaminaBonus);
+
+            delayedCoroutine = null;
+        }
+
+        private void Unfreeze(bool v) {
+            if (unFreezeOtherList.Count > 0) {
+                unFreezeSelf(v);
+                unFreezeSelf = null;
+            }
+            
+            foreach (Action<bool> action in unFreezeOtherList)
+                action(v);
+            unFreezeOtherList.Clear();
         }
     }
 }
