@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Playables;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 namespace Cutscenes {
     public class CutsceneController : MonoSingleton<CutsceneController> {
@@ -16,6 +17,9 @@ namespace Cutscenes {
         [SerializeField] private Image cutsceneImage;
         [SerializeField] private PlayableDirector director;
 
+        [SerializeField] private RectTransform topStripe;
+        [SerializeField] private RectTransform bottomStripe;
+        
         public Cutscene CurrentCutscene { get; private set; }
         private List<GameObject> textboxes = new();
         
@@ -39,12 +43,23 @@ namespace Cutscenes {
 
             foreach (Cutscene.CutsceneText text in cutscene.Texts)
                 StartCoroutine(ShowText(text));
+
+            if (cutscene.UseCinematicStripes)
+                DOTween.Sequence()
+                    .Append(topStripe.DOAnchorPosY(0, cutscene.FadeIn.Duration).SetEase(cutscene.FadeIn.Ease))
+                    .Join(bottomStripe.DOAnchorPosY(0, cutscene.FadeIn.Duration).SetEase(cutscene.FadeIn.Ease))
+                    .Play();
             
             StartCoroutine(ShowCutsceneImage(cutscene));
         }
 
         public void StopCutscene() {
             StopAllCoroutines();
+            DOTween.Sequence()
+                .Append(topStripe.DOAnchorPosY(topStripe.sizeDelta.y, CurrentCutscene.FadeOut.Duration).SetEase(CurrentCutscene.FadeOut.Ease))
+                .Join(bottomStripe.DOAnchorPosY(-bottomStripe.sizeDelta.y, CurrentCutscene.FadeOut.Duration).SetEase(CurrentCutscene.FadeOut.Ease))
+                .Play();
+            
             CurrentCutscene = null;
 
             foreach (GameObject textbox in textboxes)
