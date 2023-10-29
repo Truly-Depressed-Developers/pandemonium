@@ -25,7 +25,11 @@ namespace Player {
         [SerializeField] private FreezeReceiver freezeReceiver;
         [SerializeField] private Attack playerAttack;
 
-        public void Update() {
+        [SerializeField] private Rigidbody2D rb;
+
+        public void FixedUpdate() {
+            rb.velocity = Vector2.zero;
+            
             if(playerAttack.SpecialAttackActive)
                 return;
                 
@@ -51,19 +55,21 @@ namespace Player {
 
         private void MovePlayer() {
             Transform playerTransform = gameObject.transform;
-            float constCalculated = moveSpeed * Time.deltaTime;
+            float constCalculated = moveSpeed;// * Time.deltaTime;
 
             if (Time.time - lastDashTime < dashTime && Time.time > dashStartTime) {
-                playerTransform.Translate(dashDirection.y * dashMultiplayer * constCalculated * Vector3.up);
-                playerTransform.Translate(dashDirection.x * dashMultiplayer * constCalculated * Vector3.right);
+                rb.velocity = dashMultiplayer * constCalculated * dashDirection;
+                // playerTransform.Translate(dashDirection.y * dashMultiplayer * constCalculated * Vector3.up);
+                // playerTransform.Translate(dashDirection.x * dashMultiplayer * constCalculated * Vector3.right);
                 inDashMove = true;
                 return;
-            } else {
-                inDashMove = false;
             }
+            
+            inDashMove = false;
 
-            playerTransform.Translate(direction.y * constCalculated * Vector3.up);
-            playerTransform.Translate(direction.x * constCalculated * Vector3.right);
+            rb.velocity = constCalculated * direction;
+            // playerTransform.Translate(direction.y * constCalculated * Vector3.up);
+            // playerTransform.Translate(direction.x * constCalculated * Vector3.right);
         }
 
         public void OnIndicateDash(InputAction.CallbackContext ctx) {
