@@ -419,11 +419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ===== Enemies =====
       objectReference: {fileID: 0}
-    - target: {fileID: 4509947205997646972, guid: b7a70d0b292a77e4d8120b822610e4b7, type: 3}
+    - target: {fileID: 5529415001865017898, guid: b7a70d0b292a77e4d8120b822610e4b7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4509947205997646972, guid: b7a70d0b292a77e4d8120b822610e4b7, type: 3}
+    - target: {fileID: 5529415001865017898, guid: b7a70d0b292a77e4d8120b822610e4b7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
