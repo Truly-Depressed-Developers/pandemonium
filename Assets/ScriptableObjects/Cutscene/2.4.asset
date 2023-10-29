@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
+  m_Name: 2.4
+  m_EditorClassIdentifier: 
+  <BlockPlayerMovement>k__BackingField: 1
+  <UseCinematicStripes>k__BackingField: 1
+  <Duration>k__BackingField: 8
+  <CutsceneImg>k__BackingField: {fileID: 0}
+  <FadeIn>k__BackingField:
+    <Ease>k__BackingField: 7
+    <Duration>k__BackingField: 0.3
+  <FadeOut>k__BackingField:
+    <Ease>k__BackingField: 7
+    <Duration>k__BackingField: 0.3
+  <Texts>k__BackingField:
+  - <Text>k__BackingField: 'Dobrawa...?  '
+    <Delay>k__BackingField: 1
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "Les\u0142aw...?"
+    <Delay>k__BackingField: 3
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "Co si\u0119 sta\u0142o...?!"
+    <Delay>k__BackingField: 5
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  <Next>k__BackingField: {fileID: 0}
+  <TimeLine>k__BackingField: {fileID: 0}
