@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BlockPlayerMovement>k__BackingField: 1
   <UseCinematicStripes>k__BackingField: 1
-  <Duration>k__BackingField: 3
+  <Duration>k__BackingField: 0.1
   <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 7f29ea85ae23ee24594450dd2a9f15be, type: 3}
   <FadeIn>k__BackingField:
     <Ease>k__BackingField: 7
