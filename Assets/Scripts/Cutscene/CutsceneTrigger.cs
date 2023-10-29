@@ -12,10 +12,10 @@ namespace Cutscenes {
         [SerializeField] private List<GameObject> toEnable;
         [SerializeField] private List<GameObject> toDisable;
         
-        private void OnTriggerEnter(Collider other) {
-            if (enabled && other.CompareTag("Player")) {
-
-                foreach (GameObject o in toDisable) 
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.CompareTag("Player")) {
+                Debug.Log("Weszło do chyja");
+                foreach (GameObject o in toEnable) 
                     o.SetActive(true);
 
                 foreach (GameObject o in toDisable) 
@@ -27,7 +27,7 @@ namespace Cutscenes {
                 if (cutscene)
                     CutsceneController.I.DisplayCutscene(cutscene);
                 
-                enabled = false;
+                gameObject.SetActive(false);
             }
         }
     }
