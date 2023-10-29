@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
-  m_Name: StartCutscene
+  m_Name: 2.3
   m_EditorClassIdentifier: 
   <BlockPlayerMovement>k__BackingField: 1
   <UseCinematicStripes>k__BackingField: 1
-  <Duration>k__BackingField: 0.1
-  <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 7f29ea85ae23ee24594450dd2a9f15be, type: 3}
+  <Duration>k__BackingField: 8
+  <CutsceneImg>k__BackingField: {fileID: 0}
   <FadeIn>k__BackingField:
     <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
@@ -23,35 +23,11 @@ MonoBehaviour:
     <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
   <Texts>k__BackingField:
-  - <Text>k__BackingField: "Ah, ju\u017C ta pora"
-    <Delay>k__BackingField: 2
-    <Duration>k__BackingField: 3
-    <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 610, y: 20}
-    <Size>k__BackingField: {x: 300, y: 60}
-    <FadeIn>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-    <FadeOut>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: Dziady
-    <Delay>k__BackingField: 5
+  - <Text>k__BackingField: 'Dobrawa...?  '
+    <Delay>k__BackingField: 1
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 685, y: 20}
-    <Size>k__BackingField: {x: 150, y: 60}
-    <FadeIn>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-    <FadeOut>k__BackingField:
-      <Ease>k__BackingField: 7
-      <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "pradawny rytua\u0142, by pom\xF3c duszom"
-    <Delay>k__BackingField: 10
-    <Duration>k__BackingField: 5
-    <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 460, y: 20}
+    <Position>k__BackingField: {x: 660, y: 400}
     <Size>k__BackingField: {x: 600, y: 60}
     <FadeIn>k__BackingField:
       <Ease>k__BackingField: 7
@@ -59,17 +35,29 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "w podr\xF3zy do nieba"
-    <Delay>k__BackingField: 20.5
-    <Duration>k__BackingField: 3
+  - <Text>k__BackingField: "Les\u0142aw...?"
+    <Delay>k__BackingField: 3
+    <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 585, y: 20}
-    <Size>k__BackingField: {x: 350, y: 60}
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
     <FadeIn>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  <Next>k__BackingField: {fileID: 11400000, guid: 51c3dfef22d6ba34585d67b91dba4764, type: 2}
+  - <Text>k__BackingField: "Co si\u0119 sta\u0142o...?!"
+    <Delay>k__BackingField: 5
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  <Next>k__BackingField: {fileID: 0}
   <TimeLine>k__BackingField: {fileID: 0}

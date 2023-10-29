@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
+  m_Name: 1.3
+  m_EditorClassIdentifier: 
+  <BlockPlayerMovement>k__BackingField: 1
+  <UseCinematicStripes>k__BackingField: 1
+  <Duration>k__BackingField: 16
+  <CutsceneImg>k__BackingField: {fileID: 0}
+  <FadeIn>k__BackingField:
+    <Ease>k__BackingField: 0
+    <Duration>k__BackingField: 0
+  <FadeOut>k__BackingField:
+    <Ease>k__BackingField: 0
+    <Duration>k__BackingField: 0
+  <Texts>k__BackingField:
+  - <Text>k__BackingField: Czego potrzebujesz, duszeczko?
+    <Delay>k__BackingField: 2
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "\u017Beby si\u0119 dosta\u0107 do nieba?"
+    <Delay>k__BackingField: 5
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 400}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "Ni jad\u0142a, napoju, ja nie wiem"
+    <Delay>k__BackingField: 7
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 800}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "Droga raczej nie t\u0119dy"
+    <Delay>k__BackingField: 9
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 800}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "Wejd\u017A w me wspomnienia bracie"
+    <Delay>k__BackingField: 11
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 800}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  - <Text>k__BackingField: "I powiedz mi, czem ja przekl\u0119ty"
+    <Delay>k__BackingField: 13
+    <Duration>k__BackingField: 2
+    <FontSize>k__BackingField: 36
+    <Position>k__BackingField: {x: 660, y: 800}
+    <Size>k__BackingField: {x: 600, y: 60}
+    <FadeIn>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+    <FadeOut>k__BackingField:
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
+  <Next>k__BackingField: {fileID: 11400000, guid: 041b9b86f5a30fd45889b4bc9557bcb8, type: 2}
+  <TimeLine>k__BackingField: {fileID: 0}
