@@ -21,7 +21,11 @@ namespace DamageSystem {
         [SerializeField]
         private float finalDmgReduction = 0f;
         [SerializeField]
+        private Color healthBarColor = Color.red;
+        [SerializeField]
         private Color healthBarUnderThresholdColor = Color.green;
+        [SerializeField]
+        private Color healthBarInvulnerableColor = Color.gray;
         private float actualDmgReduction = 0f;
 
         private Player.Movement movement;
@@ -113,15 +117,20 @@ namespace DamageSystem {
         }
         
         public void SetInvulnerable() {
+            healthBar.SetColor(healthBarInvulnerableColor);
             IsInvulnerable = true;
         }
 
         public void SetInvulnerable(bool val) {
-            IsInvulnerable = val;
+            if (val)
+                SetInvulnerable();
+            else
+                SetVulnerable();
         }
 
         public void SetVulnerable() {
             IsInvulnerable = false;
+            healthBar.SetColor(IsUnderThreshold() ? healthBarUnderThresholdColor : healthBarColor);
         }
     }
     
