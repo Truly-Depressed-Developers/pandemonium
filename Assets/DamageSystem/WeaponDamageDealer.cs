@@ -6,6 +6,7 @@ namespace DamageSystem {
     public class WeaponDamageDealer : MonoBehaviour, IActiveDamageDealer {
         [SerializeField] private Weapon weapon;
         [SerializeField] private Movement movement;
+        [SerializeField] private Animator anim;
 
         public float GetDamage() {
             return weapon.GetDamage();
@@ -14,8 +15,8 @@ namespace DamageSystem {
         public void OnAttack(InputAction.CallbackContext ctx) {
             if(ctx.ReadValue<float>() == 0f) return;
             if (!weapon || movement.isInDashMove()) return;
-
-            weapon.Attack();
+            anim.Play("BasicAttack");
+            //weapon.Attack();
         }
     }
 }
