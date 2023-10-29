@@ -5,7 +5,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Playables;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 namespace Cutscenes {
     public class CutsceneController : MonoSingleton<CutsceneController> {
@@ -13,29 +15,52 @@ namespace Cutscenes {
         [SerializeField] private RectTransform cutsceneTextbox;
         
         [SerializeField] private Image cutsceneImage;
+        [SerializeField] private PlayableDirector director;
 
-        private Cutscene currentCutscene;
+        [SerializeField] private RectTransform topStripe;
+        [SerializeField] private RectTransform bottomStripe;
+        
+        public Cutscene CurrentCutscene { get; private set; }
         private List<GameObject> textboxes = new();
         
         public void DisplayCutscene(Cutscene cutscene) {
             Assert.IsNotNull(cutscene);
 
-            if (currentCutscene != null) {
-                Debug.LogWarning($"Cutscene ({currentCutscene.name}) stopped by cutscene {cutscene.name}");
+            if (CurrentCutscene != null) {
+                Debug.LogWarning($"Cutscene ({CurrentCutscene.name}) stopped by cutscene {cutscene.name}");
                 StopCutscene();
             }
             
-            currentCutscene = cutscene;
+            CurrentCutscene = cutscene;
+
+            if (cutscene.TimeLine) {
+                if (director.state == PlayState.Playing)
+                    director.Stop();
+                
+                director.playableAsset = cutscene.TimeLine;
+                director.Play();
+            }
 
             foreach (Cutscene.CutsceneText text in cutscene.Texts)
                 StartCoroutine(ShowText(text));
+
+            if (cutscene.UseCinematicStripes)
+                DOTween.Sequence()
+                    .Append(topStripe.DOAnchorPosY(0, cutscene.FadeIn.Duration).SetEase(cutscene.FadeIn.Ease))
+                    .Join(bottomStripe.DOAnchorPosY(0, cutscene.FadeIn.Duration).SetEase(cutscene.FadeIn.Ease))
+                    .Play();
             
             StartCoroutine(ShowCutsceneImage(cutscene));
         }
 
         public void StopCutscene() {
             StopAllCoroutines();
-            currentCutscene = null;
+            DOTween.Sequence()
+                .Append(topStripe.DOAnchorPosY(topStripe.sizeDelta.y, CurrentCutscene.FadeOut.Duration).SetEase(CurrentCutscene.FadeOut.Ease))
+                .Join(bottomStripe.DOAnchorPosY(-bottomStripe.sizeDelta.y, CurrentCutscene.FadeOut.Duration).SetEase(CurrentCutscene.FadeOut.Ease))
+                .Play();
+            
+            CurrentCutscene = null;
 
             foreach (GameObject textbox in textboxes)
                 if (textbox)

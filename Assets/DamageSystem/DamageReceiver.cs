@@ -1,11 +1,11 @@
-﻿using DamageSystem.Health;
-using Morok;
-using Player;
+﻿using System;
+using DamageSystem.Health;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DamageSystem {
     public class DamageReceiver : MonoBehaviour {
+        [field: SerializeField] public bool IsInvulnerable { get; private set; }
         [SerializeField] public float maxHealth = 100f;
         [SerializeField] private HealthBar healthBar;
         [SerializeField] private DeathAction deathAction = DeathAction.Destroy;
@@ -21,7 +21,11 @@ namespace DamageSystem {
         [SerializeField]
         private float finalDmgReduction = 0f;
         [SerializeField]
+        private Color healthBarColor = Color.red;
+        [SerializeField]
         private Color healthBarUnderThresholdColor = Color.green;
+        [SerializeField]
+        private Color healthBarInvulnerableColor = Color.gray;
         private float actualDmgReduction = 0f;
 
         private Player.Movement movement;
@@ -71,15 +75,16 @@ namespace DamageSystem {
         }
 
         public void TakeDamage(float amount) {
+            if (IsInvulnerable) return;
             if (movement && movement.isInDashMove()) return;
 
             OnDamageReceived.Invoke(amount);
 
-            if (IsUnderTreshold()) {
+            if (IsUnderThreshold()) {
                 healthBar.SetColor(healthBarUnderThresholdColor);
             }
 
-            actualDmgReduction = IsUnderTreshold() ? finalDmgReduction : 0f;
+            actualDmgReduction = IsUnderThreshold() ? finalDmgReduction : 0f;
 
             health -= amount * (1f - actualDmgReduction);
             health = Mathf.Clamp(health, 0, maxHealth);
@@ -92,18 +97,41 @@ namespace DamageSystem {
             void Die() {
                 OnDeath.Invoke();
 
-                if (deathAction == DeathAction.Destroy) {
-                    Destroy(gameObject);
-                } else if (deathAction == DeathAction.RespawnAtInitialPosition) {
-                    transform.position = initialPosition;
-                    health = maxHealth;
-                } else if (deathAction == DeathAction.None) {
-                    return;
+                switch (deathAction) {
+                    case DeathAction.Destroy:
+                        Destroy(gameObject);
+                        break;
+                    case DeathAction.RespawnAtInitialPosition:
+                        transform.position = initialPosition;
+                        health = maxHealth;
+                        break;
+                    case DeathAction.None:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
         }
-        public bool IsUnderTreshold() {
+        public bool IsUnderThreshold() {
             return health < maxHealth * threshold;
         }
+        
+        public void SetInvulnerable() {
+            healthBar.SetColor(healthBarInvulnerableColor);
+            IsInvulnerable = true;
+        }
+
+        public void SetInvulnerable(bool val) {
+            if (val)
+                SetInvulnerable();
+            else
+                SetVulnerable();
+        }
+
+        public void SetVulnerable() {
+            IsInvulnerable = false;
+            healthBar.SetColor(IsUnderThreshold() ? healthBarUnderThresholdColor : healthBarColor);
+        }
     }
+    
 }

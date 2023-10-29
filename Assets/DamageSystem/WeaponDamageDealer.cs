@@ -1,4 +1,4 @@
-using Player;
+﻿using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +14,6 @@ namespace DamageSystem {
         public void OnAttack(InputAction.CallbackContext ctx) {
             if(ctx.ReadValue<float>() == 0f) return;
             if (!weapon || movement.isInDashMove()) return;
-
             weapon.Attack();
         }
     }

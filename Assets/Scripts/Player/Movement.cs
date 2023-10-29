@@ -1,4 +1,6 @@
-﻿using DamageSystem;
+﻿using Cutscenes;
+using DamageSystem;
+using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +33,9 @@ namespace Player {
         public void FixedUpdate() {
             rb.velocity = Vector2.zero;
             
+            if (CutsceneController.I.CurrentCutscene && CutsceneController.I.CurrentCutscene.BlockPlayerMovement)
+                return;
+            
             if(playerAttack.SpecialAttackActive)
                 return;
                 
@@ -41,6 +46,7 @@ namespace Player {
         }
 
         public void OnIndicateMovement(InputAction.CallbackContext ctx) {
+            Debug.Log("MOVE");
             direction = ctx.ReadValue<Vector2>().normalized;
 
             if (!playerAttack.SpecialAttackActive && (direction.y != 0 || direction.x != 0)) {
@@ -55,7 +61,6 @@ namespace Player {
         }
 
         private void MovePlayer() {
-            Transform playerTransform = gameObject.transform;
             float constCalculated = moveSpeed;// * Time.deltaTime;
 
             if (Time.time - lastDashTime < dashTime && Time.time > dashStartTime) {
