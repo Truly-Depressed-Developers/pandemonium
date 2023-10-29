@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using DamageSystem;
+using Projectiles;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -22,6 +23,8 @@ public class Ghost : Enemy {
     [SerializeField] private float attackIntervalRandomness = 0.3f;
     [SerializeField] private float attackDamageBase = 10f;
     [SerializeField] private float attackDamageRandomness = 0.3f;
+    [SerializeField] private ProjectileConfig projectileConfig;
+    
     [SerializeField] private float projectileSpeedBase = 6f;
     [SerializeField] private float projectileSpeedRandomness = 0.2f;
 
@@ -31,7 +34,6 @@ public class Ghost : Enemy {
     private float AttackInterval { get { return Utils.RandomizeValue(attackIntervalBase, attackIntervalRandomness); } }
     private float AttackDamage { get { return Utils.RandomizeValue(attackDamageBase, attackDamageRandomness); } }
     private float MoveInterval { get { return Utils.RandomizeValue(moveIntervalBase, moveIntervalRandomness); } }
-    private float ProjectileSpeed { get { return Utils.RandomizeValue(projectileSpeedBase, projectileSpeedRandomness); } }
     
     private Transform target;
     private Animator anim;
@@ -75,9 +77,9 @@ public class Ghost : Enemy {
 
             Vector3 direction = (target.position - transform.position).normalized;
 
-            Bullet bulletScript = projectile.GetComponent<Bullet>();
-            bulletScript.SetSpeed(ProjectileSpeed);
-            bulletScript.SetDirection(direction);
+            Projectile projectileScript = projectile.GetComponent<Projectile>();
+            projectileScript.SetDirection(direction);
+            if(projectileConfig) projectileScript.AssignConfig(projectileConfig);
 
             yield return new WaitForSeconds(AttackInterval);
         }

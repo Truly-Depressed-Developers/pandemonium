@@ -9,5 +9,9 @@ namespace DamageSystem {
         public float GetDamage() {
             return damage;
         }
+
+        public void SetDamage(float newDamage) {
+            damage = newDamage;
+        }
     }
 }
