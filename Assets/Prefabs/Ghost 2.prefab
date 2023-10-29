@@ -118,6 +118,7 @@ MonoBehaviour:
   attackIntervalRandomness: 0.3
   attackDamageBase: 10
   attackDamageRandomness: 0.3
+  projectileConfig: {fileID: 11400000, guid: 280b6ddcaf1984342ba6604eec713926, type: 2}
   projectileSpeedBase: 6
   projectileSpeedRandomness: 0.2
   freeSound: {fileID: 4097146035301764162}
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a9faaa4fdac6d4586b108ebb9b4cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsInvulnerable>k__BackingField: 0
   maxHealth: 100
   healthBar: {fileID: 6879290726113598474}
   deathAction: 1
@@ -225,7 +227,9 @@ MonoBehaviour:
   health: 0
   threshold: 0.2
   finalDmgReduction: 0.9
+  healthBarColor: {r: 1, g: 0, b: 0, a: 1}
   healthBarUnderThresholdColor: {r: 0, g: 1, b: 0, a: 1}
+  healthBarInvulnerableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!50 &5127072754645240741
 Rigidbody2D:
   serializedVersion: 4
