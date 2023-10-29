@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Playables;
 using UnityEngine.UI;
-using Sequence = DG.Tweening.Sequence;
 
 namespace Cutscenes {
     public class CutsceneController : MonoSingleton<CutsceneController> {
@@ -19,6 +18,8 @@ namespace Cutscenes {
 
         [SerializeField] private RectTransform topStripe;
         [SerializeField] private RectTransform bottomStripe;
+
+        [SerializeField] private GameObject playerHud;
         
         public Cutscene CurrentCutscene { get; private set; }
         private List<GameObject> textboxes = new();
@@ -30,6 +31,8 @@ namespace Cutscenes {
                 Debug.LogWarning($"Cutscene ({CurrentCutscene.name}) stopped by cutscene {cutscene.name}");
                 StopCutscene();
             }
+            
+            playerHud.SetActive(false);
             
             CurrentCutscene = cutscene;
 
@@ -66,6 +69,8 @@ namespace Cutscenes {
                 if (textbox)
                     Destroy(textbox);
             textboxes.Clear();
+            
+            playerHud.SetActive(true);
         }
 
         private IEnumerator ShowCutsceneImage(Cutscene cutscene) {
