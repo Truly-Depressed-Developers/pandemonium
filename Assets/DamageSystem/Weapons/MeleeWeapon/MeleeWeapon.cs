@@ -8,6 +8,8 @@ namespace DamageSystem.Weapons.MeleeWeapon {
         [SerializeField] private UnityEvent OnAttackEnd;
         private new PolygonCollider2D collider;
         private Animator animator;
+        [SerializeField] private AudioSource audio;
+
         private Transform inner;
 
         public override float GetDamage() {
@@ -24,6 +26,9 @@ namespace DamageSystem.Weapons.MeleeWeapon {
             collider.enabled = true;
             //Debug.Log("atck");
             if (!isActiveAndEnabled) return;
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) return;
+
+            audio.Play();
             animator.Play("Attack");
         }
 
