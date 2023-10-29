@@ -14,7 +14,6 @@ namespace Cutscenes {
         
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.CompareTag("Player")) {
-                Debug.Log("Weszło do chyja");
                 foreach (GameObject o in toEnable) 
                     o.SetActive(true);
 
