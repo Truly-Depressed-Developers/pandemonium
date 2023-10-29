@@ -51,7 +51,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1916861879158388237, guid: 111eedadc1db8f04081036c2cb5aecf4, type: 3}
       propertyPath: m_Name
-      value: Ghost (1)
+      value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 3308201342341948837, guid: 111eedadc1db8f04081036c2cb5aecf4, type: 3}
       propertyPath: m_LocalPosition.x
