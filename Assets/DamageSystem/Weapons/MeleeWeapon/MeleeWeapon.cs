@@ -18,13 +18,13 @@ namespace DamageSystem.Weapons.MeleeWeapon {
         }
 
         private void Awake() {
-            collider = GetComponentInChildren<PolygonCollider2D>();
+            //collider = GetComponentInChildren<PolygonCollider2D>();
             animator = GetComponent<Animator>();
             inner = transform.GetChild(0);
         }
 
         public override void Attack() {
-            collider.enabled = true;
+            //collider.enabled = true;
             //Debug.Log("atck");
             if (!isActiveAndEnabled) return;
             if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("BasicAttackTree")) return;
@@ -36,7 +36,7 @@ namespace DamageSystem.Weapons.MeleeWeapon {
 
         private void _OnAttackEnd() {
             OnAttackEnd.Invoke();
-            collider.enabled = false;
+            //collider.enabled = false;
         }
 
         private void OnDrawGizmos() {

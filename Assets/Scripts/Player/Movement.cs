@@ -4,8 +4,7 @@ using DamageSystem.Weapons.MeleeWeapon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player {
-    public class Movement : MonoBehaviour {
+namespace Player { public class Movement : MonoBehaviour {
         [SerializeField] private float moveSpeed = 2f;
         [SerializeField] private float dashCooldown = 0.5f;
         [SerializeField] private float dashTime = 1.15f;
