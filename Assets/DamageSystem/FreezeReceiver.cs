@@ -28,7 +28,7 @@ namespace DamageSystem {
 
         private bool CanBeFreezed() {
             if (freezeOnlyUnderTreshold) {
-                return !freezed && damageReceiver.IsUnderTreshold();
+                return !freezed && damageReceiver.IsUnderThreshold();
             } else {
                 return !freezed;
             }
