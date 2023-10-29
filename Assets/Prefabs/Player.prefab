@@ -5403,7 +5403,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
+  m_Sprite: {fileID: -3259600, guid: 2032988bffb2dc745959912b3262e57a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5502,7 +5502,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5510,7 +5510,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5824065628245633129
@@ -5528,7 +5528,7 @@ MonoBehaviour:
   moveSpeed: 3
   dashCooldown: 0.1
   dashTime: 0.13
-  dashMultiplayer: 6
+  dashMultiplayer: 3
   staminaCost: 17
   staminaBar: {fileID: 0}
   anim: {fileID: 7536593582941651016}
@@ -5802,7 +5802,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.014041632, y: -0.32295752}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5813,7 +5813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.35408497}
   m_EdgeRadius: 0
 --- !u!114 &3588002284269296598
 MonoBehaviour:
@@ -5855,6 +5855,7 @@ MonoBehaviour:
   staminaCost: 40
   staminaBar: {fileID: 0}
   audio: {fileID: 8241513869386800562}
+  anim: {fileID: 7536593582941651016}
 --- !u!95 &7536593582941651016
 Animator:
   serializedVersion: 5
@@ -5941,7 +5942,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071047258085, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667928071047258085, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667928071047258085, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327193, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
@@ -5952,6 +5961,14 @@ PrefabInstance:
       propertyPath: playerAnim
       value: 
       objectReference: {fileID: 7536593582941651016}
+    - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: 
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4667928071294327198, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5996,7 +6013,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4667928071047258010, guid: e1629a5bb540e5c4eb49aff3ac684c9a, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
