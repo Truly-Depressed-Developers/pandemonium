@@ -771,6 +771,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1117918731565841156}
     m_Modifications:
+    - target: {fileID: 222540713098607370, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3,
+        type: 3}
+    - target: {fileID: 222540713098607370, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2584485077173172081, guid: 909631101beea024eb3d06e904187a3a,
         type: 3}
       propertyPath: staminaBar
@@ -796,6 +807,97 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 6993000172582293848}
+    - target: {fileID: 5159514129182278213, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 495425369, guid: fedca4e08ce1022468d88291eee952d3,
+        type: 3}
+    - target: {fileID: 5406549444088518438, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518439, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518439, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518439, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.0987046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: -0.061947748
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: 0.097250454
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: -0.062883735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.09868203
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.03412679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.02098087
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 0.074901715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: -0.0992735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444088518489, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 0.10803955
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444335325533, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406549444335325534, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 492566261853093880}
     - target: {fileID: 5824065628245633129, guid: 909631101beea024eb3d06e904187a3a,
         type: 3}
       propertyPath: staminaBar
@@ -866,12 +968,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9212013619785198036, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212013619785198036, guid: 909631101beea024eb3d06e904187a3a,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7441360320714549002, guid: 909631101beea024eb3d06e904187a3a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909631101beea024eb3d06e904187a3a, type: 3}
+--- !u!95 &492566261853093880 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7536593582941651016, guid: 909631101beea024eb3d06e904187a3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7945099098873511856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3519316432424914518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6815553925068911078, guid: 909631101beea024eb3d06e904187a3a,

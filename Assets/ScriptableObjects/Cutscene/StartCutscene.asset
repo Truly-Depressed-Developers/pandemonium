@@ -72,4 +72,4 @@ MonoBehaviour:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
   <Next>k__BackingField: {fileID: 0}
-  <TimeLine>k__BackingField: {fileID: 11400000, guid: bf18b3701a104214b8b572fe2ef05e05, type: 2}
+  <TimeLine>k__BackingField: {fileID: 0}

@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_FlipX
-    path: 
+    path: Inner
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -45,7 +45,7 @@ AnimationClip:
       value: {fileID: -1320648443, guid: 67f34cb4e1a4cf743ac75cf7c4588c91, type: 3}
     - time: 0.11666667
       value: {fileID: 1259775310, guid: 67f34cb4e1a4cf743ac75cf7c4588c91, type: 3}
-    - time: 0.25
+    - time: 0.23333333
       value: {fileID: -1948629750, guid: 67f34cb4e1a4cf743ac75cf7c4588c91, type: 3}
     - time: 0.33333334
       value: {fileID: -41963874, guid: 67f34cb4e1a4cf743ac75cf7c4588c91, type: 3}
@@ -54,7 +54,7 @@ AnimationClip:
     - time: 0.5833333
       value: {fileID: 5268578, guid: 67f34cb4e1a4cf743ac75cf7c4588c91, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Inner
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -66,7 +66,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2901419213
       attribute: 555744692
       script: {fileID: 0}
       typeID: 212
@@ -75,7 +75,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 0
+      path: 2901419213
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -128,7 +128,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_FlipX
-    path: 
+    path: Inner
     classID: 212
     script: {fileID: 0}
     flags: 0

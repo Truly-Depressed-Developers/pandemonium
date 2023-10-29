@@ -9,6 +9,7 @@ namespace DamageSystem.Weapons.MeleeWeapon {
         private new PolygonCollider2D collider;
         private Animator animator;
         [SerializeField] private AudioSource audio;
+        [SerializeField] private Animator playerAnim;
 
         private Transform inner;
 
@@ -26,10 +27,11 @@ namespace DamageSystem.Weapons.MeleeWeapon {
             collider.enabled = true;
             //Debug.Log("atck");
             if (!isActiveAndEnabled) return;
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) return;
+            if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("BasicAttackTree")) return;
 
             audio.Play();
-            animator.Play("Attack");
+            playerAnim.Play("BasicAttackTree");
+            //animator.Play("Attack");
         }
 
         private void _OnAttackEnd() {
