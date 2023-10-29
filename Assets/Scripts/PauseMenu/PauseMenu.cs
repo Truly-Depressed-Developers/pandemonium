@@ -35,7 +35,10 @@ namespace PauseMenu {
         public void Callback_Resume() {
             Hide();
         }
-
+        
+        /// <summary>
+        ///     Used in Pause menu and in Final scene
+        /// </summary>
         public void Callback_Exit() {
             Time.timeScale = 1f;
             SceneManager.LoadScene(0);
