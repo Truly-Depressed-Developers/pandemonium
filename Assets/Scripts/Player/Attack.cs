@@ -9,7 +9,7 @@ namespace Player {
     public class Attack : MonoBehaviour {
         [SerializeField] private MeleeWeapon meleeWeapon;
         [SerializeField] private Collider2D specialWeaponCollider;
-        [SerializeField] private GameObject crossWeapon;
+        [SerializeField] private new GameObject particleSystem;
         [SerializeField] private FreezeInvoker crossWeaponFreezeInvoker;
         [SerializeField] private Movement movement;
         [SerializeField] private float staminaCost;
@@ -23,9 +23,9 @@ namespace Player {
             if (ctx.ReadValue<float>() == 0f) return;
             if (SpecialAttackActive || movement.isInDashMove()) return;
             if (!staminaBar || !staminaBar.TryUse(staminaCost)) return;
+            
 
             audio.Play();
-            CameraZoomIn.instance.ZoomInCamera();
             specialAttackCoroutine = StartCoroutine(FreeTheSpirit());
         }
 
@@ -40,15 +40,18 @@ namespace Player {
         private void FreeTheSpiritBegin() {
             meleeWeapon.gameObject.SetActive(false);
             specialWeaponCollider.enabled = true;
-            crossWeapon.gameObject.SetActive(true);
+            
+            particleSystem.SetActive(true);
+            CameraZoomIn.instance.ZoomInCamera();
         }
 
         private void FreeTheSpiritEnd() {
             meleeWeapon.gameObject.SetActive(true);
             specialWeaponCollider.enabled = false;
-            crossWeapon.gameObject.SetActive(false);
-
+            
+            particleSystem.SetActive(false);
             CameraZoomIn.instance.ZoomOutCamera();
+            
             specialAttackCoroutine = null;
         }
 
