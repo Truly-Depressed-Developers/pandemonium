@@ -1,4 +1,4 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: cd7b913e7923dcf45beb0a1fef3af1a5
 TextureImporter:
   internalIDToNameTable: []
@@ -131,10 +131,16 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -1, y: -16}
+        - {x: -1, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: 7}
+        - {x: 7, y: 7}
+        - {x: 7, y: -16}
       tessellationDetail: 0
       bones: []
       spriteID: 847dc3c2e1172d141b53bdaef5da0ba7
@@ -152,10 +158,16 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 1, y: -16}
+        - {x: -7, y: -16}
+        - {x: -7, y: 7}
+        - {x: 16, y: 7}
+        - {x: 15.999996, y: -1.0620718}
+        - {x: 1, y: -1}
       tessellationDetail: 0
       bones: []
       spriteID: c7dcd658f7a95744f8cfafc9c8d52d75
