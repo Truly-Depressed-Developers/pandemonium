@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
-  m_Name: 2.1
+  m_Name: 2.3
   m_EditorClassIdentifier: 
   <BlockPlayerMovement>k__BackingField: 1
   <UseCinematicStripes>k__BackingField: 1
-  <Duration>k__BackingField: 9
+  <Duration>k__BackingField: 8
   <CutsceneImg>k__BackingField: {fileID: 0}
   <FadeIn>k__BackingField:
     <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
   <FadeOut>k__BackingField:
-    <Ease>k__BackingField: 0
+    <Ease>k__BackingField: 7
     <Duration>k__BackingField: 0.3
   <Texts>k__BackingField:
-  - <Text>k__BackingField: "G\u0142ucho wsz\u0119dzie..."
+  - <Text>k__BackingField: 'Dobrawa...?  '
     <Delay>k__BackingField: 1
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 660, y: 100}
+    <Position>k__BackingField: {x: 660, y: 400}
     <Size>k__BackingField: {x: 600, y: 60}
     <FadeIn>k__BackingField:
       <Ease>k__BackingField: 7
@@ -35,11 +35,11 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "Co to b\u0119dzie..."
-    <Delay>k__BackingField: 4
+  - <Text>k__BackingField: "Les\u0142aw...?"
+    <Delay>k__BackingField: 3
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 660, y: 100}
+    <Position>k__BackingField: {x: 660, y: 400}
     <Size>k__BackingField: {x: 600, y: 60}
     <FadeIn>k__BackingField:
       <Ease>k__BackingField: 7
@@ -47,17 +47,17 @@ MonoBehaviour:
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  - <Text>k__BackingField: "<i>Co to b\u0119dzie?</i>"
-    <Delay>k__BackingField: 7
+  - <Text>k__BackingField: "Co si\u0119 sta\u0142o...?!"
+    <Delay>k__BackingField: 5
     <Duration>k__BackingField: 2
     <FontSize>k__BackingField: 36
-    <Position>k__BackingField: {x: 660, y: 800}
+    <Position>k__BackingField: {x: 660, y: 400}
     <Size>k__BackingField: {x: 600, y: 60}
     <FadeIn>k__BackingField:
-      <Ease>k__BackingField: 0
-      <Duration>k__BackingField: 0
+      <Ease>k__BackingField: 7
+      <Duration>k__BackingField: 0.3
     <FadeOut>k__BackingField:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
-  <Next>k__BackingField: {fileID: 11400000, guid: 5ac3d80e991090a4f90a96a370e06ca1, type: 2}
+  <Next>k__BackingField: {fileID: 0}
   <TimeLine>k__BackingField: {fileID: 0}
