@@ -14,6 +14,7 @@ namespace Player {
         [SerializeField] private Movement movement;
         [SerializeField] private float staminaCost;
         [SerializeField] private StaminaBar staminaBar;
+        [SerializeField] private AudioSource audio;
 
         public bool SpecialAttackActive => specialAttackCoroutine != null;
         private Coroutine specialAttackCoroutine;
@@ -23,6 +24,7 @@ namespace Player {
             if (SpecialAttackActive || movement.isInDashMove()) return;
             if (!staminaBar || !staminaBar.TryUse(staminaCost)) return;
 
+            audio.Play();
             CameraZoomIn.instance.ZoomInCamera();
             specialAttackCoroutine = StartCoroutine(FreeTheSpirit());
         }
@@ -52,7 +54,8 @@ namespace Player {
 
         public void CancelSpecialAttack() {
             if (!SpecialAttackActive) return;
-            
+
+            audio.Stop();
             crossWeaponFreezeInvoker.CancelFreeze();
             StopCoroutine(specialAttackCoroutine);
             FreeTheSpiritEnd();
