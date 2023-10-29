@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 namespace Cutscenes {
@@ -13,19 +14,28 @@ namespace Cutscenes {
         [SerializeField] private RectTransform cutsceneTextbox;
         
         [SerializeField] private Image cutsceneImage;
+        [SerializeField] private PlayableDirector director;
 
-        private Cutscene currentCutscene;
+        public Cutscene CurrentCutscene { get; private set; }
         private List<GameObject> textboxes = new();
         
         public void DisplayCutscene(Cutscene cutscene) {
             Assert.IsNotNull(cutscene);
 
-            if (currentCutscene != null) {
-                Debug.LogWarning($"Cutscene ({currentCutscene.name}) stopped by cutscene {cutscene.name}");
+            if (CurrentCutscene != null) {
+                Debug.LogWarning($"Cutscene ({CurrentCutscene.name}) stopped by cutscene {cutscene.name}");
                 StopCutscene();
             }
             
-            currentCutscene = cutscene;
+            CurrentCutscene = cutscene;
+
+            if (cutscene.TimeLine) {
+                if (director.state == PlayState.Playing)
+                    director.Stop();
+                
+                director.playableAsset = cutscene.TimeLine;
+                director.Play();
+            }
 
             foreach (Cutscene.CutsceneText text in cutscene.Texts)
                 StartCoroutine(ShowText(text));
@@ -35,7 +45,7 @@ namespace Cutscenes {
 
         public void StopCutscene() {
             StopAllCoroutines();
-            currentCutscene = null;
+            CurrentCutscene = null;
 
             foreach (GameObject textbox in textboxes)
                 if (textbox)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16bcba991f48978276ceeb15885e97, type: 3}
   m_Name: StartCutscene
   m_EditorClassIdentifier: 
-  <Duration>k__BackingField: 0
+  <Duration>k__BackingField: 300
   <CutsceneImg>k__BackingField: {fileID: 21300000, guid: 7f29ea85ae23ee24594450dd2a9f15be, type: 3}
   <FadeIn>k__BackingField:
     <Ease>k__BackingField: 7
@@ -70,3 +70,4 @@ MonoBehaviour:
       <Ease>k__BackingField: 7
       <Duration>k__BackingField: 0.3
   <Next>k__BackingField: {fileID: 0}
+  <TimeLine>k__BackingField: {fileID: 11400000, guid: bf18b3701a104214b8b572fe2ef05e05, type: 2}
