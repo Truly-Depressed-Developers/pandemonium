@@ -11,7 +11,7 @@ Guślarz musi teraz dokonać wyboru. Może podjąć się heroicznej walki, któr
 ## Motivation
 Pandemonium was created at [Steelworks jam](https://steelworksjam.com/).
 
-- **Topic:** Dinosaurs
+- **Topic:** Podczas dziadów stary duch opowiedział wam o swoim życiu i tragicznej śmierci. Poprosił was żebyście opowiedzieli jego historię.
 
 - Timeframe: 27 October - 29 October 2023, 48 hours
 
